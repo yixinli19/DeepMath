@@ -5,6 +5,318 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeepMath - Our Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .metric-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .metric-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 8px;
+            color: var(--primary-color);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #edf2f7;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .analysis-container {
+            display: flex;
+            gap: 1.5rem;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .pentagon-container {
+            flex: 0 0 300px;
+            min-width: 300px;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .metrics-group {
+            flex: 1;
+            display: flex;
+            gap: 1.5rem;
+            min-width: 0;
+            flex-wrap: nowrap;
+        }
+
+        .difficulty-levels {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .difficulty-box {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafb;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .difficulty-box .percentage {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .modeling-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .modeling-description {
+            margin: -0.5rem 0 2rem 0;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .modeling-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        @media (max-width: 1024px) {
+            .analysis-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .pentagon-container {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .metrics-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .metric-box {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metric-box {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto !important;
+        }
+
+        .metric-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .content-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .feature-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .hint-levels {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hint-levels li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .hint-levels span {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .content-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 1rem 0 2rem;
+            max-width: 900px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .feature-list li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .feature-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .feature-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-box p {
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .feature-list {
+            margin-top: auto;  /* 将列表推到底部 */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,7 +325,6 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="achievements.html">Achievements</a></li>
                     <li><a href="solutions.html">Solutions</a></li>
                     <li><a href="demo.html">Demo</a></li>
                     <li><a href="team.html">Team</a></li>
@@ -26,50 +337,357 @@
     <div class="container">
         <h1 class="section-title">Our Solutions</h1>
         
-        <!-- Core Solutions -->
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-            <div class="card">
-                <h3 style="color: #2a5298; margin-bottom: 1rem;">Student Modeling</h3>
-                <p>Our AI builds comprehensive student profiles by analyzing:</p>
-                <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
-                    <li>Learning patterns</li>
-                    <li>Problem-solving approaches</li>
-                    <li>Knowledge gaps</li>
-                    <li>Progress tracking</li>
-                </ul>
+        <div class="solutions-grid">
+            <div class="modeling-section">
+                <h3 class="modeling-title">Step 1: Comprehensive Student Modeling</h3>
+                
+                <div class="modeling-description">
+                    <p>Through a combination of problem-solving data and targeted surveys, we build multi-dimensional student profiles that capture both academic performance and learning characteristics.</p>
+                </div>
+                
+                <div class="analysis-container">
+                    <div class="pentagon-container">
+                        <div class="metric-title">
+                            <div class="metric-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            Learning Ability Assessment
+                        </div>
+                        <canvas id="pentagonChart"></canvas>
+                    </div>
+
+                    <div class="metrics-group">
+                        <!-- Knowledge Mastery Box -->
+                        <div class="metric-box">
+                            <div class="metric-title">
+                                <div class="metric-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                Knowledge Mastery
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span>Basic Knowledge Foundation</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span>Problem-Solving Patterns</span>
+                                    <span>78%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+
+                            <div class="skill-item">
+                                <div class="skill-header">
+                                    <span>Knowledge Gaps Analysis</span>
+                                    <span>92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Thinking Intensity Box -->
+                        <div class="metric-box">
+                            <div class="metric-title">
+                                <div class="metric-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                Thinking Intensity Analysis
+                            </div>
+
+                            <div class="difficulty-levels">
+                                <div class="difficulty-box">
+                                    <div>Basic</div>
+                                    <div class="percentage">95%</div>
+                                    <div style="color: var(--text-secondary)">Success Rate</div>
+                                </div>
+                                <div class="difficulty-box">
+                                    <div>Intermediate</div>
+                                    <div class="percentage">82%</div>
+                                    <div style="color: var(--text-secondary)">Success Rate</div>
+                                </div>
+                                <div class="difficulty-box">
+                                    <div>Advanced</div>
+                                    <div class="percentage">68%</div>
+                                    <div style="color: var(--text-secondary)">Success Rate</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1.5rem;">
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Problem-Solving Speed</span>
+                                        <span>88%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 88%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item">
+                                    <div class="skill-header">
+                                        <span>Error Pattern Analysis</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <h3 style="color: #2a5298; margin-bottom: 1rem;">STEM Content</h3>
-                <p>Advanced math content featuring:</p>
-                <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
-                    <li>Dynamic curriculum mapping</li>
-                    <li>Regional standard alignment</li>
-                    <li>Interactive problem sets</li>
-                    <li>Real-world applications</li>
-                </ul>
+                <h3 class="section-title">Step 2:Deep and Logical Math Curriculum System</h3>
+                
+                <div class="content-description">
+                    <p>Moving beyond traditional mathematics education, our content system emphasizes deep understanding and logical thinking. We've developed a comprehensive question bank that connects mathematical concepts in meaningful ways, supported by an intelligent hint system that guides students through their learning journey. Each question is carefully designed to cultivate both problem-solving skills and mathematical thinking.</p>
+                </div>
+                
+                <div class="content-features">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>Rich Question Bank</h4>
+                        <p>Over 30 years of curated high-quality mathematics questions for K-12, carefully selected and enhanced for deeper learning.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4>Multi-Knowledge Integration</h4>
+                        <p>Application-based questions that integrate multiple knowledge points, moving beyond single-concept problems to develop comprehensive understanding.</p>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Intelligent Hint System</h4>
+                        <p>Four-level progressive hint system:</p>
+                        <ul class="hint-levels">
+                            <li><span>Level 1:</span> High-level solution approach</li>
+                            <li><span>Level 2:</span> Key difficulties identification</li>
+                            <li><span>Level 3:</span> Detailed step-by-step solution</li>
+                            <li><span>Level 4:</span> Problem-type analysis and review</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>AI-Powered Adaptive Hints</h4>
+                        <p>Our AI system analyzes prerequisites and customizes hints based on students' current knowledge level, ensuring they receive guidance aligned with their learning progress.</p>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <h3 style="color: #2a5298; margin-bottom: 1rem;">AI Monitoring</h3>
-                <p>Intelligent supervision through:</p>
-                <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
-                    <li>Real-time engagement tracking</li>
-                    <li>Automated progress reports</li>
-                    <li>Behavioral pattern analysis</li>
-                    <li>Personalized interventions</li>
-                </ul>
+                <h3 class="section-title">Step 3: Real-time Supervision</h3>
+                
+                <div class="content-description">
+                    <p>Our AI-powered supervision system works alongside human tutors, providing real-time insights and analytics to enhance the learning experience. This collaborative approach ensures efficient monitoring and timely intervention, enabling tutors to deliver more personalized and effective guidance.</p>
+                </div>
+                
+                <div class="content-features">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Active Engagement Monitoring</h4>
+                        <p>AI tutor continuously monitors student engagement:</p>
+                        <ul class="feature-list">
+                            <li>Screen activity tracking</li>
+                            <li>Inactivity alerts</li>
+                            <li>Focus level assessment</li>
+                            <li>Real-time attention metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h4>Session Analytics</h4>
+                        <p>Comprehensive session summaries for tutors:</p>
+                        <ul class="feature-list">
+                            <li>Time spent on each question</li>
+                            <li>Pattern of hint usage</li>
+                            <li>Progress tracking</li>
+                            <li>Learning behavior analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Actionable Insights</h4>
+                        <p>AI-generated suggestions for tutors:</p>
+                        <ul class="feature-list">
+                            <li>Personalized intervention points</li>
+                            <li>Learning style recommendations</li>
+                            <li>Difficulty level adjustments</li>
+                            <li>Concept reinforcement suggestions</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>Enhanced Reporting</h4>
+                        <p>Detailed feedback for parents:</p>
+                        <ul class="feature-list">
+                            <li>Progress reports with specific metrics</li>
+                            <li>Learning behavior insights</li>
+                            <li>Areas for improvement</li>
+                            <li>Actionable recommendations</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="card">
-                <h3 style="color: #2a5298; margin-bottom: 1rem;">Analytics</h3>
-                <p>Data-driven optimization including:</p>
-                <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
-                    <li>Performance analytics</li>
-                    <li>Learning path optimization</li>
-                    <li>Outcome prediction</li>
-                    <li>Continuous improvement</li>
-                </ul>
+                <h3 class="section-title">Step 4: Research-Driven Analytics</h3>
+                
+                <div class="content-description">
+                    <p>Our dedicated research team continuously analyzes comprehensive student performance data to optimize the learning experience. Through sophisticated data analytics, we refine our curriculum design and question bank to ensure optimal learning outcomes.</p>
+                </div>
+                
+                <div class="content-features">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-sitemap"></i>
+                        </div>
+                        <h4>Curriculum Analysis</h4>
+                        <p>Systematic evaluation of curriculum effectiveness:</p>
+                        <ul class="feature-list">
+                            <li>Knowledge point connections</li>
+                            <li>Learning path optimization</li>
+                            <li>Topic sequence assessment</li>
+                            <li>Prerequisite relationship validation</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h4>Question Bank Optimization</h4>
+                        <p>Data-driven question assessment:</p>
+                        <ul class="feature-list">
+                            <li>Difficulty level calibration</li>
+                            <li>Success rate analysis</li>
+                            <li>Time consumption metrics</li>
+                            <li>Common error pattern identification</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Performance Metrics</h4>
+                        <p>Comprehensive data collection:</p>
+                        <ul class="feature-list">
+                            <li>Student progress tracking</li>
+                            <li>Learning efficiency measurement</li>
+                            <li>Knowledge retention rates</li>
+                            <li>Skill development curves</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Continuous Improvement</h4>
+                        <p>Iterative enhancement process:</p>
+                        <ul class="feature-list">
+                            <li>Regular content updates</li>
+                            <li>Question refinement</li>
+                            <li>Difficulty adjustment</li>
+                            <li>Learning path optimization</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const ctx = document.getElementById('pentagonChart').getContext('2d');
+        
+        const data = {
+            labels: [
+                'Learning Strategies',
+                'Motivation',
+                'Self-Confidence',
+                'Concentration',
+                'Perseverance'
+            ],
+            datasets: [{
+                data: [85, 90, 75, 80, 85],
+                backgroundColor: 'rgba(16, 163, 127, 0.2)',
+                borderColor: 'rgba(16, 163, 127, 1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(16, 163, 127, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(16, 163, 127, 1)'
+            }]
+        };
+
+        new Chart(ctx, {
+            type: 'radar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            display: false
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        angleLines: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 11,
+                                family: "'Inter', sans-serif"
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 
     <footer>
         <p>&copy; 2025 DeepMath. All Rights Reserved.</p>

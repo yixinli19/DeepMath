@@ -18,10 +18,10 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
+    line-height: 1.4;
     color: var(--text-primary);
     background: var(--background-light);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -81,12 +81,12 @@ nav a:hover {
 
 /* Section Styles */
 .section-title {
-    font-size: 2rem;
+    font-size: 1.2rem;
     color: var(--text-primary);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.02em;
 }
 
 /* Card Grid */
@@ -235,11 +235,19 @@ footer {
     }
 
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .stat-number {
         font-size: 1.5rem;
+    }
+
+    .feature-box h4, .metric-title {
+        font-size: 0.8rem;
+    }
+
+    .feature-box p, .hint-levels li {
+        font-size: 0.72rem;
     }
 }
 
@@ -251,4 +259,231 @@ footer {
 
 .card, .section-title, .hero {
     animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* 更新描述文字大小 */
+.content-description {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin: 0.5rem 0 1rem;
+}
+
+/* 更新特性标题大小 */
+.feature-box h4 {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+/* 更新特性描述文字大小 */
+.feature-box p {
+    font-size: 0.78rem;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+}
+
+/* 更新图标大小 */
+.feature-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+}
+
+/* 更新卡片内边距 */
+.feature-box {
+    padding: 0.8rem;
+    gap: 0.4rem;
+}
+
+/* 间距调整 */
+.content-features {
+    gap: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* 提示级别列表 */
+.hint-levels li {
+    margin-bottom: 0.4rem;
+    gap: 0.4rem;
+}
+
+/* 研究分析部分的特定样式 */
+.modeling-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.6rem 0 1.2rem;
+}
+
+/* 更新特性标题大小 */
+.metric-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 更新特性描述文字大小 */
+.metric-description {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+/* 更新图标大小 */
+.metric-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+/* 更新卡片内边距 */
+.metric-box {
+    padding: 1rem;
+}
+
+/* 间距调整 */
+.content-features {
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* 提示级别列表 */
+.hint-levels li {
+    margin-bottom: 0.4rem;
+    gap: 0.4rem;
+}
+
+/* 研究分析部分的特定样式 */
+.modeling-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.6rem 0 1.2rem;
+}
+
+/* 更新特性标题大小 */
+.metric-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 更新特性描述文字大小 */
+.metric-description {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+/* 更新图标大小 */
+.metric-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+/* 更新卡片内边距 */
+.metric-box {
+    padding: 1rem;
+}
+
+/* 间距调整 */
+.content-features {
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* 提示级别列表 */
+.hint-levels li {
+    margin-bottom: 0.4rem;
+    gap: 0.4rem;
+}
+
+/* 研究分析部分的特定样式 */
+.modeling-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.6rem 0 1.2rem;
+}
+
+/* 更新特性标题大小 */
+.metric-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 更新特性描述文字大小 */
+.metric-description {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+/* 更新图标大小 */
+.metric-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+/* 更新卡片内边距 */
+.metric-box {
+    padding: 1rem;
+}
+
+/* 间距调整 */
+.content-features {
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* 提示级别列表 */
+.hint-levels li {
+    margin-bottom: 0.4rem;
+    gap: 0.4rem;
+}
+
+/* 研究分析部分的特定样式 */
+.modeling-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0.6rem 0 1.2rem;
+}
+
+/* 更新特性标题大小 */
+.metric-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 更新特性描述文字大小 */
+.metric-description {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin-bottom: 0.6rem;
+}
+
+/* 更新图标大小 */
+.metric-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+}
+
+/* 更新卡片内边距 */
+.metric-box {
+    padding: 1rem;
+}
+
+/* 间距调整 */
+.content-features {
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* 提示级别列表 */
+.hint-levels li {
+    margin-bottom: 0.4rem;
+    gap: 0.4rem;
 }

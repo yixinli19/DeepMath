@@ -82,6 +82,89 @@
             color: transparent;
             font-weight: bold;
         }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--card-background);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .stat-card small {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .story-card {
+            background: var(--card-background);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .story-card h3 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -91,7 +174,6 @@
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="achievements.html">Achievements</a></li>
                     <li><a href="solutions.html">Solutions</a></li>
                     <li><a href="demo.html">Demo</a></li>
                     <li><a href="team.html">Team</a></li>
@@ -101,40 +183,64 @@
         </div>
     </header>
 
-    <section class="hero">
-        <h1>Revolutionizing Math Education <br><span class="gradient-text">with AI</span></h1>
-        <p>DeepMath is addressing significant pain points in online math education through innovative AI solutions. We combine adaptive learning, personalized student modeling, and advanced analytics to create an unparalleled learning experience.</p>
-    </section>
+    <div class="container">
+        <div class="hero">
+            <h1>Revolutionizing Math Education</h1>
+            <p>Empowering students with AI-driven personalized learning</p>
+            <a href="demo.html" class="cta-button">Try Demo</a>
+        </div>
 
-    <section class="features">
-        <h2 class="section-title">Our Core Features</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <h3>Adaptive Learning</h3>
-                <p>Our AI-powered system adapts to each student's learning pace, style, and needs, providing personalized learning paths and real-time adjustments to optimize understanding.</p>
+        <!-- Key Achievements -->
+        <div class="achievements-section">
+            <h2 class="section-title">Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <p>Years as MVP</p>
+                    <small>Excellence since 2020</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100k+</div>
+                    <p>Students Served</p>
+                    <small>Growing community</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100</div>
+                    <p>Public Schools</p>
+                    <small>Nationwide partnership</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60</div>
+                    <p>Partner Institutions</p>
+                    <small>Trusted partnerships</small>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <p>Improvement Rate</p>
+                    <small>Proven success</small>
+                </div>
             </div>
-            <div class="feature-card">
-                <h3>Deep Math Content</h3>
-                <p>Comprehensive mathematics curriculum with real-world applications, interactive problem sets, and practical examples that bridge theoretical concepts with everyday scenarios.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Comprehensive Student Modeling</h3>
-                <p>Building personalized, multi-dimensional student profiles that adapt to individual learning patterns and needs.</p>
-            </div>
-            <div class="feature-card">
-                <h3>AI-Assisted Monitoring</h3>
-                <p>Ensuring student engagement and progress through intelligent monitoring systems that provide real-time feedback.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Data-Driven Optimization</h3>
-                <p>Leveraging advanced analytics to continuously enhance learning outcomes and adapt to student needs.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Application-Based Learning</h3>
-                <p>Connecting mathematical concepts to real-world scenarios, STEM applications, and practical problem-solving to enhance understanding and retention.</p>
+
+            <!-- Success Stories -->
+            <div class="success-stories">
+                <h2 class="section-title">Success Stories</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <h3>Public School Integration</h3>
+                        <p>40% improvement in standardized test scores across 100 public schools</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>Student Performance</h3>
+                        <p>90% of students showed significant improvement within 3 months</p>
+                    </div>
+                    <div class="story-card">
+                        <h3>Institution Partnerships</h3>
+                        <p>60 leading educational institutions in our learning ecosystem</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
         <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
