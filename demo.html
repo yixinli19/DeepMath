@@ -285,6 +285,160 @@
             display: block;
             opacity: 1;
         }
+
+        /* Analysis Container Styles */
+        .analysis-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .pentagon-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* Square aspect ratio */
+            margin: 1rem auto; /* Center horizontally */
+            max-width: 300px; /* Limit maximum width */
+        }
+
+        .chart-container canvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the canvas */
+            width: 90% !important; /* Slightly smaller than container */
+            height: 90% !important;
+        }
+
+        .metrics-group {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            min-width: 300px;
+        }
+
+        .metric-box {
+            flex: 1;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .metric-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 8px;
+            color: var(--primary-color);
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #edf2f7;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .difficulty-levels {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .difficulty-box {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: var(--background-subtle);
+            border-radius: 8px;
+        }
+
+        .percentage {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .analysis-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .pentagon-container {
+                width: 100%;
+                max-width: none; /* Remove max-width constraint */
+            }
+
+            .chart-container {
+                padding-bottom: 80%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .difficulty-levels {
+                flex-direction: column;
+            }
+
+            .difficulty-box {
+                margin-bottom: 0.8rem;
+            }
+
+            .chart-container {
+                padding-bottom: 70%;
+                max-width: 260px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -586,7 +740,7 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             scales: {
                 r: {
                     beginAtZero: true,
