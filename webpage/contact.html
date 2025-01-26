@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepMath - Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">DeepMath</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="section-title">Contact Us</h1>
+        <p style="text-align: center; margin-bottom: 3rem; color: #666;">
+            Have questions? We'd love to hear from you.
+        </p>
+        
+        <div class="contact-form">
+            <form action="https://formsubmit.co/lieason715@gmail.com" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required 
+                           placeholder="Enter your name" minlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required 
+                           placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required 
+                           placeholder="Enter subject" minlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required 
+                            placeholder="Enter your message" minlength="10" 
+                            style="min-height: 150px;"></textarea>
+                </div>
+                <p style="color: #666; font-size: 0.8rem; margin-bottom: 1rem;">* Required fields</p>
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="color: #666; margin-bottom: 1rem;">Or reach us directly at:</p>
+            <p style="color: #2a5298;">info@deepmath.edu</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
+    </footer>
+</body>
+</html> 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepMath - Revolutionizing Math Education</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(to bottom, var(--background-dark), var(--background-light));
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(16, 163, 127, 0.15), transparent);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary-color), #14b89a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">DeepMath</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Revolutionizing Math Education <br><span class="gradient-text">with AI</span></h1>
+        <p>DeepMath is addressing significant pain points in online math education through innovative AI solutions. We combine adaptive learning, personalized student modeling, and advanced analytics to create an unparalleled learning experience.</p>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Our Core Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Adaptive Learning</h3>
+                <p>Our AI-powered system adapts to each student's learning pace, style, and needs, providing personalized learning paths and real-time adjustments to optimize understanding.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Deep Math Content</h3>
+                <p>Comprehensive mathematics curriculum with real-world applications, interactive problem sets, and practical examples that bridge theoretical concepts with everyday scenarios.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Comprehensive Student Modeling</h3>
+                <p>Building personalized, multi-dimensional student profiles that adapt to individual learning patterns and needs.</p>
+            </div>
+            <div class="feature-card">
+                <h3>AI-Assisted Monitoring</h3>
+                <p>Ensuring student engagement and progress through intelligent monitoring systems that provide real-time feedback.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Data-Driven Optimization</h3>
+                <p>Leveraging advanced analytics to continuously enhance learning outcomes and adapt to student needs.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Application-Based Learning</h3>
+                <p>Connecting mathematical concepts to real-world scenarios, STEM applications, and practical problem-solving to enhance understanding and retention.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
