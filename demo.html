@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeepMath - Demo</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .demo-section {
             margin-bottom: 4rem;
@@ -69,6 +71,128 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .demo-disclaimer {
+            background: rgba(16, 163, 127, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin-bottom: 3rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .demo-disclaimer p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .demo-disclaimer i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .demo-disclaimer {
+                padding: 1rem;
+                margin: 0 0.5rem 2rem;
+            }
+            
+            .demo-disclaimer p {
+                font-size: 0.9rem;
+            }
+        }
+
+        .demo-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        .hint-system {
+            margin-top: 2rem;
+        }
+
+        .hint-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hint-btn {
+            padding: 0.8rem 1.2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hint-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hint-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hint {
+            display: none;
+            padding: 1.5rem;
+            background: var(--background-subtle);
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .hint.active {
+            display: block;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .hint h5 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .hint p, .hint li {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .hint ul, .hint ol {
+            padding-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .problem-text {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .hint-controls {
+                gap: 0.5rem;
+            }
+            
+            .hint-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -89,71 +213,256 @@
 
     <div class="container">
         <h1 class="section-title">Interactive Demo</h1>
-        <p style="text-align: center; margin-bottom: 3rem; color: #666;">
+        <p style="text-align: center; margin-bottom: 1rem; color: #666;">
             Experience our core features in action
         </p>
+        <div class="demo-disclaimer">
+            <p><i class="fas fa-info-circle"></i> Note: This is a simplified demonstration using preset values. In the actual system, sophisticated algorithms analyze numerous factors including learning patterns, problem-solving approaches, and historical performance data to generate personalized assessments.</p>
+        </div>
 
         <div class="demo-section">
             <div class="demo-block">
-                <h3 class="demo-title">Comprehensive Student Modeling</h3>
-                <p>Our AI-driven system creates detailed student profiles by analyzing learning patterns and behaviors.</p>
-                <div class="demo-image">Student Profile Visualization</div>
-                <div class="demo-content">
-                    <div class="demo-feature">
-                        <h4>Learning Pattern Analysis</h4>
-                        <p>Real-time tracking of problem-solving approaches, time management, and learning preferences.</p>
+                <h3 class="demo-title">Interactive Student Modeling Demo</h3>
+                <p class="demo-description">
+                    Experience our intelligent modeling system by answering questions and surveys. This assessment process is continuously performed across all learning sessions, allowing us to track and analyze your progress, learning patterns, and knowledge growth over time.
+                </p>
+
+                <div class="question-container">
+                    <!-- Basic Question -->
+                    <div class="question active" data-level="basic">
+                        <h4>Basic Level - Absolute Value</h4>
+                        <p>What is the negative of |-2|?</p>
+                        <input type="number" class="answer-input" placeholder="Enter your answer">
+                        <button class="submit-btn" onclick="checkAnswer('basic')">Submit Answer</button>
                     </div>
-                    <div class="demo-feature">
-                        <h4>Knowledge Mapping</h4>
-                        <p>Visual representation of student's mathematical knowledge and skill progression.</p>
+
+                    <!-- Intermediate Question -->
+                    <div class="question" data-level="intermediate">
+                        <h4>Intermediate Level - Equation</h4>
+                        <p>Solve the equation: 2|x + 1| - 3 = 5</p>
+                        <input type="number" class="answer-input" placeholder="Enter the positive value of x">
+                        <button class="submit-btn" onclick="checkAnswer('intermediate')">Submit Answer</button>
+                    </div>
+
+                    <!-- Advanced Question -->
+                    <div class="question" data-level="advanced">
+                        <h4>Advanced Level - Function</h4>
+                        <p>For function f(x) = |x - 2| + |x + 2|, find the minimum value of f(x)</p>
+                        <input type="number" class="answer-input" placeholder="Enter the minimum value">
+                        <button class="submit-btn" onclick="checkAnswer('advanced')">Submit Answer</button>
+                    </div>
+
+                    <!-- Survey Questions -->
+                    <div class="survey-question" data-survey="1">
+                        <h4>Learning Survey 1/3</h4>
+                        <p>Did you clearly understand the requirements of the questions?</p>
+                        <div class="survey-options">
+                            <button class="survey-btn" onclick="selectOption(this, 1)">Yes</button>
+                            <button class="survey-btn" onclick="selectOption(this, 1)">No</button>
+                        </div>
+                    </div>
+
+                    <div class="survey-question" data-survey="2">
+                        <h4>Learning Survey 2/3</h4>
+                        <p>Did you encounter any difficulties while solving the problems?</p>
+                        <div class="survey-options">
+                            <button class="survey-btn" onclick="selectOption(this, 2)">Yes</button>
+                            <button class="survey-btn" onclick="selectOption(this, 2)">No</button>
+                        </div>
+                    </div>
+
+                    <div class="survey-question" data-survey="3">
+                        <h4>Learning Survey 3/3</h4>
+                        <p>Are you confident about your answers?</p>
+                        <div class="survey-options">
+                            <button class="survey-btn" onclick="selectOption(this, 3)">Yes</button>
+                            <button class="survey-btn" onclick="selectOption(this, 3)">No</button>
+                        </div>
+                    </div>
+
+                    <!-- Results Container -->
+                    <div class="result-container" style="display: none;">
+                        <div class="analysis-container">
+                            <div class="pentagon-container">
+                                <div class="metric-title">
+                                    <div class="metric-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    Learning Ability Assessment
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="resultChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="metrics-group">
+                                <div class="metric-box">
+                                    <div class="metric-title">
+                                        <div class="metric-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        Knowledge Mastery
+                                    </div>
+                                    
+                                    <div class="skill-item">
+                                        <div class="skill-header">
+                                            <span>Basic Knowledge Foundation</span>
+                                            <span>85%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <div class="skill-header">
+                                            <span>Problem-Solving Patterns</span>
+                                            <span>78%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 78%"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="skill-item">
+                                        <div class="skill-header">
+                                            <span>Knowledge Gaps Analysis</span>
+                                            <span>92%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Thinking Intensity Box -->
+                                <div class="metric-box">
+                                    <div class="metric-title">
+                                        <div class="metric-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        Thinking Intensity Analysis
+                                    </div>
+
+                                    <div class="difficulty-levels">
+                                        <div class="difficulty-box">
+                                            <div>Basic</div>
+                                            <div class="percentage">95%</div>
+                                            <div style="color: var(--text-secondary)">Success Rate</div>
+                                        </div>
+                                        <div class="difficulty-box">
+                                            <div>Intermediate</div>
+                                            <div class="percentage">82%</div>
+                                            <div style="color: var(--text-secondary)">Success Rate</div>
+                                        </div>
+                                        <div class="difficulty-box">
+                                            <div>Advanced</div>
+                                            <div class="percentage">68%</div>
+                                            <div style="color: var(--text-secondary)">Success Rate</div>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-top: 1.5rem;">
+                                        <div class="skill-item">
+                                            <div class="skill-header">
+                                                <span>Problem-Solving Speed</span>
+                                                <span>88%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 88%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="skill-item">
+                                            <div class="skill-header">
+                                                <span>Error Pattern Analysis</span>
+                                                <span>75%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="demo-block">
-                <h3 class="demo-title">Deep, Logical Math Content</h3>
-                <p>Structured mathematical content that builds strong foundational understanding.</p>
-                <div class="demo-image">Interactive Math Content Sample</div>
-                <div class="demo-content">
-                    <div class="demo-feature">
-                        <h4>Interactive Problem Sets</h4>
-                        <p>Step-by-step problem solving with real-time feedback and explanations.</p>
-                    </div>
-                    <div class="demo-feature">
-                        <h4>STEM Applications</h4>
-                        <p>Real-world examples showing practical applications of mathematical concepts.</p>
-                    </div>
-                </div>
-            </div>
+                <h3 class="demo-title">Interactive Hint System Demo</h3>
+                <p class="demo-description">
+                    Experience our intelligent hint system that provides progressive guidance. Each level of hint is designed to help you learn while maintaining the right amount of challenge.
+                </p>
 
-            <div class="demo-block">
-                <h3 class="demo-title">Online Learning Supervision</h3>
-                <p>AI-assisted monitoring ensures students stay engaged and on track.</p>
-                <div class="demo-image">Engagement Monitoring Dashboard</div>
-                <div class="demo-content">
-                    <div class="demo-feature">
-                        <h4>Real-time Monitoring</h4>
-                        <p>Track student engagement, focus, and progress during learning sessions.</p>
-                    </div>
-                    <div class="demo-feature">
-                        <h4>Smart Interventions</h4>
-                        <p>Timely support and guidance when students face challenges.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="demo-block">
-                <h3 class="demo-title">Data-Driven Optimization</h3>
-                <p>Continuous improvement through advanced analytics and machine learning.</p>
-                <div class="demo-image">Analytics Dashboard</div>
-                <div class="demo-content">
-                    <div class="demo-feature">
-                        <h4>Performance Analytics</h4>
-                        <p>Detailed insights into learning progress and areas for improvement.</p>
-                    </div>
-                    <div class="demo-feature">
-                        <h4>Adaptive Learning Paths</h4>
-                        <p>Personalized curriculum adjustments based on performance data.</p>
+                <div class="question-container">
+                    <div class="math-problem">
+                        <h4>Sample Problem</h4>
+                        <p class="problem-text">Solve the equation: |2x + 1| + |2x - 3| = 6</p>
+                        <div class="hint-system">
+                            <div class="hint-controls">
+                                <button class="hint-btn" onclick="showHint(1)" data-level="1">
+                                    <i class="fas fa-lightbulb"></i> Level 1 Hint
+                                </button>
+                                <button class="hint-btn" onclick="showHint(2)" data-level="2">
+                                    <i class="fas fa-search"></i> Level 2 Hint
+                                </button>
+                                <button class="hint-btn" onclick="showHint(3)" data-level="3">
+                                    <i class="fas fa-list-ol"></i> Level 3 Hint
+                                </button>
+                                <button class="hint-btn" onclick="showHint(4)" data-level="4">
+                                    <i class="fas fa-book"></i> Level 4 Hint
+                                </button>
+                            </div>
+                            
+                            <div class="hint-content">
+                                <div class="hint" data-level="1">
+                                    <h5>High-level Solution Approach</h5>
+                                    <p>Consider the different possible cases when dealing with absolute values. The equation can be split into different intervals based on when each absolute value term is positive or negative.</p>
+                                </div>
+                                
+                                <div class="hint" data-level="2">
+                                    <h5>Key Difficulties</h5>
+                                    <p>The main challenge is handling two absolute value terms. You need to:</p>
+                                    <ul>
+                                        <li>Identify the critical points where the expressions inside absolute values change signs (x = -1/2 and x = 3/2)</li>
+                                        <li>Consider different cases in different intervals</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="hint" data-level="3">
+                                    <h5>Step-by-Step Solution</h5>
+                                    <ol>
+                                        <li>Find critical points: 2x + 1 = 0 → x = -1/2 and 2x - 3 = 0 → x = 3/2</li>
+                                        <li>Divide into intervals: x < -1/2, -1/2 < x < 3/2, x > 3/2</li>
+                                        <li>Solve in each interval:
+                                            <ul>
+                                                <li>For x < -1/2: -(2x + 1) - (2x - 3) = 6</li>
+                                                <li>For -1/2 < x < 3/2: (2x + 1) - (2x - 3) = 6</li>
+                                                <li>For x > 3/2: (2x + 1) + (2x - 3) = 6</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="hint" data-level="4">
+                                    <h5>Problem Analysis & Review</h5>
+                                    <p>This type of problem tests understanding of:</p>
+                                    <ul>
+                                        <li>Absolute value properties and their geometric meaning</li>
+                                        <li>Case analysis in equations</li>
+                                        <li>Critical point identification</li>
+                                        <li>Interval-based problem solving</li>
+                                    </ul>
+                                    <p>Similar problems often appear in:</p>
+                                    <ul>
+                                        <li>Distance problems on number lines</li>
+                                        <li>Optimization problems involving absolute values</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -163,5 +472,146 @@
     <footer>
         <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
     </footer>
+
+    <script>
+    // Add this at the beginning of the script to initialize the chart immediately
+    const ctx = document.getElementById('resultChart');
+    window.resultChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Learning Strategy', 'Motivation', 'Self-Confidence', 'Focus', 'Perseverance'],
+            datasets: [{
+                data: [85, 90, 75, 80, 85],
+                backgroundColor: 'rgba(16, 163, 127, 0.2)',
+                borderColor: 'rgba(16, 163, 127, 1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(16, 163, 127, 1)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgba(16, 163, 127, 1)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        stepSize: 20,
+                        display: false
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    angleLines: {
+                        color: 'rgba(0, 0, 0, 0.1)'
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 11,
+                            family: "'Inter', sans-serif"
+                        },
+                        color: 'var(--text-secondary)'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    const answers = {
+        basic: -2,
+        intermediate: 4,
+        advanced: 4
+    };
+
+    let currentLevel = 'basic';
+    let scores = {
+        basic: 0,
+        intermediate: 0,
+        advanced: 0
+    };
+    let surveyResponses = [];
+
+    function checkAnswer(level) {
+        const input = document.querySelector(`.question[data-level="${level}"] input`);
+        const answer = parseFloat(input.value);
+        
+        if (answer === answers[level]) {
+            scores[level] = 100;
+        } else {
+            scores[level] = 0;
+        }
+
+        if (level === 'basic') {
+            currentLevel = 'intermediate';
+        } else if (level === 'intermediate') {
+            currentLevel = 'advanced';
+        } else {
+            showSurvey();
+            return;
+        }
+
+        showNextQuestion();
+    }
+
+    function showNextQuestion() {
+        document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+        document.querySelector(`.question[data-level="${currentLevel}"]`).classList.add('active');
+    }
+
+    function showSurvey() {
+        document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+        document.querySelector('.survey-question[data-survey="1"]').classList.add('active');
+    }
+
+    function selectOption(btn, surveyNum) {
+        const buttons = btn.parentElement.querySelectorAll('.survey-btn');
+        buttons.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        surveyResponses.push(btn.textContent);
+
+        if (surveyNum < 3) {
+            document.querySelectorAll('.survey-question').forEach(q => q.classList.remove('active'));
+            document.querySelector(`.survey-question[data-survey="${surveyNum + 1}"]`).classList.add('active');
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        document.querySelectorAll('.survey-question').forEach(q => q.classList.remove('active'));
+        const resultContainer = document.querySelector('.result-container');
+        resultContainer.style.display = 'block';
+        // Force chart update
+        window.resultChart.update();
+    }
+
+    function showHint(level) {
+        // Update button states
+        document.querySelectorAll('.hint-btn').forEach(btn => {
+            if (parseInt(btn.dataset.level) <= level) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Show hints up to the selected level
+        document.querySelectorAll('.hint').forEach(hint => {
+            if (parseInt(hint.dataset.level) <= level) {
+                hint.classList.add('active');
+            } else {
+                hint.classList.remove('active');
+            }
+        });
+    }
+    </script>
 </body>
 </html> 
