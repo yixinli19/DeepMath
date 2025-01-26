@@ -21,7 +21,7 @@ body {
     line-height: 1.4;
     color: var(--text-primary);
     background: var(--background-light);
-    font-size: 0.85rem;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -64,7 +64,7 @@ nav a {
     color: var(--text-secondary);
     font-weight: 500;
     transition: color 0.3s;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     letter-spacing: -0.01em;
 }
 
@@ -247,7 +247,7 @@ footer {
     }
 
     .feature-box p, .hint-levels li {
-        font-size: 0.72rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -263,22 +263,22 @@ footer {
 
 /* 更新描述文字大小 */
 .content-description {
-    font-size: 0.8rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.5;
     margin: 0.5rem 0 1rem;
 }
 
 /* 更新特性标题大小 */
 .feature-box h4 {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     margin-bottom: 0.4rem;
     font-weight: 600;
 }
 
 /* 更新特性描述文字大小 */
 .feature-box p {
-    font-size: 0.78rem;
-    line-height: 1.3;
+    font-size: 1rem;
+    line-height: 1.4;
     margin-bottom: 0.3rem;
 }
 
@@ -323,7 +323,7 @@ footer {
 
 /* 更新特性描述文字大小 */
 .metric-description {
-    font-size: 0.82rem;
+    font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 0.6rem;
 }
@@ -368,97 +368,7 @@ footer {
 
 /* 更新特性描述文字大小 */
 .metric-description {
-    font-size: 0.82rem;
-    line-height: 1.4;
-    margin-bottom: 0.6rem;
-}
-
-/* 更新图标大小 */
-.metric-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-}
-
-/* 更新卡片内边距 */
-.metric-box {
-    padding: 1rem;
-}
-
-/* 间距调整 */
-.content-features {
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-/* 提示级别列表 */
-.hint-levels li {
-    margin-bottom: 0.4rem;
-    gap: 0.4rem;
-}
-
-/* 研究分析部分的特定样式 */
-.modeling-description {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin: 0.6rem 0 1.2rem;
-}
-
-/* 更新特性标题大小 */
-.metric-title {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-/* 更新特性描述文字大小 */
-.metric-description {
-    font-size: 0.82rem;
-    line-height: 1.4;
-    margin-bottom: 0.6rem;
-}
-
-/* 更新图标大小 */
-.metric-icon {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
-    margin-bottom: 0.8rem;
-}
-
-/* 更新卡片内边距 */
-.metric-box {
-    padding: 1rem;
-}
-
-/* 间距调整 */
-.content-features {
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-/* 提示级别列表 */
-.hint-levels li {
-    margin-bottom: 0.4rem;
-    gap: 0.4rem;
-}
-
-/* 研究分析部分的特定样式 */
-.modeling-description {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin: 0.6rem 0 1.2rem;
-}
-
-/* 更新特性标题大小 */
-.metric-title {
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-/* 更新特性描述文字大小 */
-.metric-description {
-    font-size: 0.82rem;
+    font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 0.6rem;
 }
