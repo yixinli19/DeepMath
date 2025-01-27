@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public School Success Story - DeepMath</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .story-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .story-header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.6);
+        }
+
+        .story-header-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .story-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-section {
+            margin: 3rem 0;
+        }
+
+        .story-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .story-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .quote-box {
+            background: var(--background-subtle);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .quote-text {
+            font-style: italic;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .story-header {
+                height: 300px;
+            }
+
+            .story-header h1 {
+                font-size: 2rem;
+            }
+
+            .story-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .story-content {
+                padding: 0 1rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">DeepMath</div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../solutions.html">Solutions</a></li>
+                    <li><a href="../demo.html">Demo</a></li>
+                    <li><a href="../team.html">Team</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="story-header">
+        <img src="../images/placeholder-school.jpg" alt="Public School Success" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'400\' viewBox=\'0 0 1200 400\'%3E%3Crect width=\'1200\' height=\'400\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23999\' font-family=\'Arial\' font-size=\'32\'%3ESchool Success Story%3C/text%3E%3C/svg%3E'">
+        <div class="story-header-content">
+            <h1>Transforming Public School Education</h1>
+            <p>How DeepMath revolutionized math learning across 100 public schools</p>
+        </div>
+    </div>
+
+    <div class="story-content">
+        <a href="../index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+
+        <div class="story-stats">
+            <div class="stat-box">
+                <div class="number">40%</div>
+                <div class="label">Score Improvement</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">100</div>
+                <div class="label">Partner Schools</div>
+            </div>
+            <div class="stat-box">
+                <div class="number">50k+</div>
+                <div class="label">Students Impacted</div>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h2>The Challenge</h2>
+            <p>Public schools faced significant challenges in providing personalized math education at scale. Limited resources and large class sizes made it difficult for teachers to give individual attention to each student's needs.</p>
+        </div>
+
+        <div class="quote-box">
+            <div class="quote-text">"DeepMath has transformed how we teach mathematics. The personalized learning approach has helped our students develop a deeper understanding of mathematical concepts."</div>
+            <div class="quote-author">- Sarah Johnson, Math Department Head</div>
+        </div>
+
+        <div class="story-section">
+            <h2>The Solution</h2>
+            <p>DeepMath's AI-powered platform provided a scalable solution that could adapt to each student's learning pace and style. The system's ability to identify knowledge gaps and provide targeted interventions proved invaluable.</p>
+        </div>
+
+        <div class="story-section">
+            <h2>The Results</h2>
+            <p>Within the first year of implementation, schools reported a 40% improvement in standardized test scores. Student engagement increased significantly, and teachers could better focus on providing support where it was needed most.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
+    </footer>
+</body>
+</html> 

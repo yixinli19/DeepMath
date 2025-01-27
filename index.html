@@ -129,27 +129,70 @@
         }
 
         .story-card {
+            text-decoration: none;
             background: var(--card-background);
-            padding: 1.2rem;
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            transition: transform 0.3s;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
         }
 
         .story-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .story-card h3 {
-            font-size: 1rem;
+        .story-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            padding: 1.5rem;
+        }
+
+        .story-content h3 {
+            font-size: 1.2rem;
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
-        .story-card p {
-            font-size: 0.85rem;
+        .story-content p {
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.4;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more i {
+            transition: transform 0.3s;
+        }
+
+        .story-card:hover .read-more i {
+            transform: translateX(5px);
         }
 
         @media (max-width: 768px) {
@@ -163,6 +206,14 @@
 
             .stories-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .story-image {
+                height: 180px;
+            }
+            
+            .story-content {
+                padding: 1.2rem;
             }
         }
     </style>
@@ -225,18 +276,38 @@
             <div class="success-stories">
                 <h2 class="section-title">Success Stories</h2>
                 <div class="stories-grid">
-                    <div class="story-card">
-                        <h3>Public School Integration</h3>
-                        <p>40% improvement in standardized test scores across 100 public schools</p>
-                    </div>
-                    <div class="story-card">
-                        <h3>Student Performance</h3>
-                        <p>90% of students showed significant improvement within 3 months</p>
-                    </div>
-                    <div class="story-card">
-                        <h3>Institution Partnerships</h3>
-                        <p>60 leading educational institutions in our learning ecosystem</p>
-                    </div>
+                    <a href="stories/public-schools.html" class="story-card">
+                        <div class="story-image">
+                            <img src="images/placeholder-school.jpg" alt="Public School Success" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23999\' font-family=\'Arial\' font-size=\'14\'%3ESchool Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="story-content">
+                            <h3>Public School Integration</h3>
+                            <p>40% improvement in standardized test scores across 100 public schools</p>
+                            <span class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    
+                    <a href="stories/student-success.html" class="story-card">
+                        <div class="story-image">
+                            <img src="images/placeholder-student.jpg" alt="Student Success" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23999\' font-family=\'Arial\' font-size=\'14\'%3EStudent Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="story-content">
+                            <h3>Student Performance</h3>
+                            <p>90% of students showed significant improvement within 3 months</p>
+                            <span class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    
+                    <a href="stories/institutions.html" class="story-card">
+                        <div class="story-image">
+                            <img src="images/placeholder-institution.jpg" alt="Institution Partnership" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\' viewBox=\'0 0 300 200\'%3E%3Crect width=\'300\' height=\'200\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' fill=\'%23999\' font-family=\'Arial\' font-size=\'14\'%3EInstitution Image%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="story-content">
+                            <h3>Institution Partnerships</h3>
+                            <p>60 leading educational institutions in our learning ecosystem</p>
+                            <span class="read-more">Read Full Story <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
