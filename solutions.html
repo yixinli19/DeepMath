@@ -144,7 +144,7 @@
             max-width: 900px;
         }
 
-        .modeling-title {
+        .modeling-title, .section-title {
             color: var(--primary-color);
             font-size: 1.4rem;
             margin-bottom: 1rem;
@@ -152,6 +152,7 @@
             border-bottom: 1px solid var(--border-color);
             font-weight: 600;
             letter-spacing: -0.02em;
+            text-align: left;
         }
 
         @media (max-width: 1024px) {
@@ -159,7 +160,7 @@
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .pentagon-container {
                 flex: none;
                 width: 100%;
@@ -610,7 +611,7 @@
             .supervision-flow {
                 grid-template-columns: 1fr;
             }
-            
+
             .report-content {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -718,15 +719,15 @@
 
     <div class="container">
         <h1 class="section-title">Our Solutions</h1>
-        
+
         <div class="solutions-grid">
             <div class="modeling-section">
                 <h3 class="modeling-title">Step 1: Comprehensive Student Modeling</h3>
-                
+
                 <div class="modeling-description">
                     <p>Through a combination of problem-solving data and targeted surveys, we build multi-dimensional student profiles that capture both academic performance and learning characteristics.</p>
                 </div>
-                
+
                 <div class="analysis-container">
                     <div class="pentagon-container">
                         <div class="metric-title">
@@ -747,7 +748,7 @@
                                 </div>
                                 Knowledge Mastery
                             </div>
-                            
+
                             <div class="skill-item">
                                 <div class="skill-header">
                                     <span>Basic Knowledge Foundation</span>
@@ -833,7 +834,7 @@
             </div>
             <div class="card">
                 <h3 class="section-title">Step 2: Deep and Logical Math Curriculum System</h3>
-                
+
                 <div class="content-description">
                     <p>Our comprehensive mathematics curriculum system is built on a meticulously structured knowledge framework that emphasizes deep understanding and logical thinking.</p>
                 </div>
@@ -886,7 +887,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="content-features">
                     <div class="feature-box hint-system-box">
                         <div class="feature-icon">
@@ -894,7 +895,7 @@
                         </div>
                         <h4>Intelligent Curriculum-Aware Hint System</h4>
                         <p>Every question in our system comes with a carefully designed four-level hint structure, customized to your curriculum:</p>
-                        
+
                         <div class="hint-system-content">
                             <div class="hint-levels-container">
                                 <ul class="hint-levels">
@@ -934,11 +935,11 @@
             </div>
             <div class="card">
                 <h3 class="section-title">Step 3: Adaptive Learning Path</h3>
-                
+
                 <div class="content-description">
                     <p>Our adaptive learning system creates a personalized learning journey for each student. Starting with comprehensive content study, students progress through carefully selected practice questions. Based on their performance and behavior, our AI system dynamically adjusts the learning path - whether that means increasing difficulty for mastered concepts, providing additional support for challenging areas, or revisiting fundamental concepts when needed.</p>
                 </div>
-                
+
                 <div class="adaptive-learning-flow">
                     <div class="flow-container">
                         <div class="flow-step">
@@ -1007,11 +1008,11 @@
             </div>
             <div class="card">
                 <h3 class="section-title">Step 4: Real-time Supervision</h3>
-                
+
                 <div class="content-description">
                     <p>Our AI monitoring system works as a virtual teaching assistant, providing comprehensive supervision of each student's learning journey. The AI agent continuously collects and analyzes learning behavior data, generating detailed reports for our tutors to deliver personalized guidance.</p>
                 </div>
-                
+
                 <div class="supervision-flow">
                     <div class="flow-step">
                         <div class="flow-icon">
@@ -1092,11 +1093,11 @@
             </div>
             <div class="card">
                 <h3 class="section-title">Step 5: Research-Driven Analytics</h3>
-                
+
                 <div class="content-description">
                     <p>Our dedicated research team continuously analyzes comprehensive student performance data to optimize the learning experience. Through sophisticated data analytics, we refine our curriculum design and question bank to ensure optimal learning outcomes.</p>
                 </div>
-                
+
                 <div class="content-features">
                     <div class="feature-box">
                         <div class="feature-icon">
@@ -1158,68 +1159,8 @@
         </div>
     </div>
 
-    <script>
-        const ctx = document.getElementById('pentagonChart').getContext('2d');
-        
-        const data = {
-            labels: [
-                'Learning Strategies',
-                'Motivation',
-                'Self-Confidence',
-                'Concentration',
-                'Perseverance'
-            ],
-            datasets: [{
-                data: [85, 90, 75, 80, 85],
-                backgroundColor: 'rgba(16, 163, 127, 0.2)',
-                borderColor: 'rgba(16, 163, 127, 1)',
-                borderWidth: 2,
-                pointBackgroundColor: 'rgba(16, 163, 127, 1)',
-                pointBorderColor: '#fff',
-                pointHoverBackgroundColor: '#fff',
-                pointHoverBorderColor: 'rgba(16, 163, 127, 1)'
-            }]
-        };
-
-        new Chart(ctx, {
-            type: 'radar',
-            data: data,
-            options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        max: 100,
-                        ticks: {
-                            stepSize: 20,
-                            display: false
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        },
-                        angleLines: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        },
-                        pointLabels: {
-                            font: {
-                                size: 11,
-                                family: "'Inter', sans-serif"
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-    </script>
-
     <footer>
         <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
     </footer>
 </body>
-</html> 
+</html>
