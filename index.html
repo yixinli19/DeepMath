@@ -6,6 +6,7 @@
     <title>DeepMath - Revolutionizing Math Education</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .hero {
             position: relative;
@@ -1647,6 +1648,31 @@
             ];
 
             // ... (copy the rest of the connection drawing code) ...
+        });
+    </script>
+
+    <script>
+        const ctx = document.getElementById('pentagonChart').getContext('2d');
+        const pentagonChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Knowledge', 'Application', 'Engagement', 'Motivation', 'Tracking'],
+                datasets: [{
+                    label: 'Learning Ability',
+                    data: [65, 70, 80, 90, 75], // Example data
+                    backgroundColor: 'rgba(16, 163, 127, 0.2)',
+                    borderColor: 'rgba(16, 163, 127, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true
+                    }
+                }
+            }
         });
     </script>
 </body>

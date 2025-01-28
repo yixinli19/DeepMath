@@ -736,7 +736,7 @@
                             </div>
                             Learning Ability Assessment
                         </div>
-                        <canvas id="pentagonChart"></canvas>
+                        <canvas id="pentagonChart" width="400" height="400"></canvas>
                     </div>
 
                     <div class="metrics-group">
@@ -1162,5 +1162,32 @@
     <footer>
         <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('pentagonChart').getContext('2d');
+            const pentagonChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Knowledge', 'Application', 'Engagement', 'Motivation', 'Tracking'],
+                    datasets: [{
+                        label: 'Learning Ability',
+                        data: [65, 70, 80, 90, 75], // Example data
+                        backgroundColor: 'rgba(16, 163, 127, 0.2)',
+                        borderColor: 'rgba(16, 163, 127, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
