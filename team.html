@@ -14,7 +14,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="demo.html">Demo</a></li>
+                    <!-- <li><a href="demo.html">Demo</a></li> -->
                     <li><a href="team.html">Team</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -24,9 +24,7 @@
 
     <div class="container">
         <h1 class="section-title">Our Team</h1>
-        <p style="text-align: center; margin-bottom: 3rem; color: #666;">
-            Meet the experts behind DeepMath's innovative solutions
-        </p>
+        <p class="section-subtitle">Meet the experts behind DeepMath's innovative solutions</p>
 
         <div class="grid">
             <div class="card team-member">
@@ -117,6 +115,25 @@
             min-height: 100%;
             object-fit: cover;
             transform: translate(-50%, -50%);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-style: italic;
         }
     </style>
 
