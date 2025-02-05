@@ -30,13 +30,14 @@
 
         <div class="grid">
             <div class="card team-member">
-                <div class="member-image">Photo</div>
+                <div class="member-image">
+                    <img src="./images/eason.jpg" alt="Yixin Li">
+                </div>
                 <h3 class="member-name">Yixin Li</h3>
                 <div class="member-role">CEO & Product Manager</div>
                 <p class="member-bio">M.S. and B.S. from NC State University. Solution Product Manager in Lenovo Global Future Leaders Program. Expert in student modeling, knowledge tracing, and adaptive learning pathways. Innovator in applying large language models and reinforcement learning to enhance educational experiences. Successfully led the development of AI-powered educational platforms that bridge theoretical research with practical applications.</p>
                 <div class="member-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
+                    <a href="https://www.linkedin.com/in/yixin-li-218a561a1/" class="social-link">LinkedIn</a>
                 </div>
             </div>
 
@@ -46,8 +47,7 @@
                 <div class="member-role">Founder & Chief Advisor</div>
                 <p class="member-bio">M.S. and B.S. from Tsinghua University. Former Vice President of Microsoft Greater China, Managing Director of Accenture Greater China (Fortune 500's only consulting company), and Partner at IBM Global Consulting. Expert in enterprise digital transformation, successfully guided multiple renowned companies to IPO.</p>
                 <div class="member-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
+                    <a href="https://www.linkedin.com/in/your-linkedin-url" class="social-link">LinkedIn</a>
                 </div>
             </div>
 
@@ -57,19 +57,19 @@
                 <div class="member-role">Founder & Head of Content</div>
                 <p class="member-bio">Former Mathematics Research Specialist in Jinan City, China, with nearly 30 years of experience in high school entrance examination development. Special-grade Teacher of Shandong Province. Council member of Mathematics Research Association, China Education Society Mathematics Education Research Center. Key member of Ministry of Education's research teams on examination evaluation and teaching quality monitoring.</p>
                 <div class="member-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
+                    <a href="https://www.linkedin.com/in/your-linkedin-url" class="social-link">LinkedIn</a>
                 </div>
             </div>
 
             <div class="card team-member">
-                <div class="member-image">Photo</div>
+                <div class="member-image">
+                    <img src="./images/noboru.jpg" alt="Noboru Matsuda">
+                </div>
                 <h3 class="member-name">Dr. Noboru Matsuda</h3>
                 <div class="member-role">Head of Research & Development</div>
                 <p class="member-bio">Associate Professor of Computer Science and Director of the Innovative Educational Computing Laboratory at NC State University. Ph.D. in Intelligent Systems from University of Pittsburgh. Specializes in AI technology innovation for education, focusing on machine learning and computational approaches to understand and improve learning processes. Member of the Digital Transformation of Education cluster at NCSU Chancellor's Faculty Excellence Program.</p>
                 <div class="member-links">
-                    <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">Twitter</a>
+                    <a href="https://www.linkedin.com/in/noboru-matsuda-241a1a18/" class="social-link">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -97,6 +97,26 @@
 
         .social-link:hover {
             text-decoration: underline;
+        }
+
+        .member-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            background: none;
+        }
+
+        .member-image img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
         }
     </style>
 
