@@ -708,6 +708,200 @@
                 width: 100%;
             }
         }
+
+        /* New Process Flow Styles */
+        .process-flow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .process-step {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(16, 163, 127, 0.08);
+            padding: 3rem;
+            margin: 3rem 0;
+            border: none;
+        }
+
+        .step-header {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(16, 163, 127, 0.03);
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            font-size: 1.6rem;
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 8px 20px rgba(16, 163, 127, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .step-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* Component Cards */
+        .component-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(16, 163, 127, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(16, 163, 127, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .card-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(16, 163, 127, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .card-list li:last-child {
+            border-bottom: none;
+        }
+
+        .card-list i {
+            color: var(--primary-color);
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Enhanced Icon Styling */
+        .section-title-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(16, 163, 127, 0.1);
+            padding: 1.5rem;
+            border-radius: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Enhancement */
+        .timeline-event {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin: 1.5rem 0;
+        }
+
+        .event-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .process-step {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .component-card {
+                padding: 1.5rem;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+
+        .step-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 1rem 0;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .step-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .step-number {
+            font-size: 1.8rem;
+            background: none;
+            color: var(--primary-color);
+            width: auto;
+            height: auto;
+            margin: 0 0 1rem 0;
+            box-shadow: none;
+            font-weight: 700;
+            text-align: center;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -727,441 +921,238 @@
     </header>
 
     <div class="container">
-        <h1 class="section-title">Our Solutions</h1>
-        <p class="section-subtitle">Explore the innovative solutions we offer to enhance learning experiences.</p>
+        <h1 class="section-title">Our Learning Process</h1>
+        <p class="section-subtitle">7-Step AI-Powered Learning Journey for Continuous Improvement</p>
 
-        <div class="solutions-grid">
-            <div class="modeling-section">
-                <h3 class="modeling-title">Step 1: Comprehensive Student Modeling</h3>
-
-                <div class="modeling-description">
-                    <p>Through a combination of problem-solving data and targeted surveys, we build multi-dimensional student profiles that capture both academic performance and learning characteristics.</p>
+        <div class="process-flow">
+            <!-- Step 1 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 1</div>
+                    <h3>Student Onboarding</h3>
                 </div>
-
-                <div class="analysis-container">
-                    <div class="pentagon-container">
-                        <div class="metric-title">
-                            <div class="metric-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            Learning Ability Assessment
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-graduate"></i>
                         </div>
-                        <canvas id="pentagonChart" width="400" height="400"></canvas>
+                        <h3 class="card-title">Student Actions</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i>Grade level selection</li>
+                            <li><i class="fas fa-check"></i>Topic preference indication</li>
+                            <li><i class="fas fa-check"></i>Comprehensive assessment test</li>
+                            <li><i class="fas fa-check"></i>Learning style survey completion</li>
+                        </ul>
                     </div>
 
-                    <div class="metrics-group">
-                        <!-- Knowledge Mastery Box -->
-                        <div class="metric-box">
-                            <div class="metric-title">
-                                <div class="metric-icon">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                Knowledge Mastery
-                            </div>
-
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span>Basic Knowledge Foundation</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 85%"></div>
-                                </div>
-                            </div>
-
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span>Problem-Solving Patterns</span>
-                                    <span>78%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 78%"></div>
-                                </div>
-                            </div>
-
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span>Knowledge Gaps Analysis</span>
-                                    <span>92%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 92%"></div>
-                                </div>
-                            </div>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
                         </div>
-
-                        <!-- Thinking Intensity Box -->
-                        <div class="metric-box">
-                            <div class="metric-title">
-                                <div class="metric-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                Thinking Intensity Analysis
-                            </div>
-
-                            <div class="difficulty-levels">
-                                <div class="difficulty-box">
-                                    <div>Basic</div>
-                                    <div class="percentage">95%</div>
-                                    <div style="color: var(--text-secondary)">Success Rate</div>
-                                </div>
-                                <div class="difficulty-box">
-                                    <div>Intermediate</div>
-                                    <div class="percentage">82%</div>
-                                    <div style="color: var(--text-secondary)">Success Rate</div>
-                                </div>
-                                <div class="difficulty-box">
-                                    <div>Advanced</div>
-                                    <div class="percentage">68%</div>
-                                    <div style="color: var(--text-secondary)">Success Rate</div>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 1.5rem;">
-                                <div class="skill-item">
-                                    <div class="skill-header">
-                                        <span>Problem-Solving Speed</span>
-                                        <span>88%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 88%"></div>
-                                    </div>
-                                </div>
-
-                                <div class="skill-item">
-                                    <div class="skill-header">
-                                        <span>Error Pattern Analysis</span>
-                                        <span>75%</span>
-                                    </div>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 75%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="card-title">AI Analysis</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chart-line"></i>Initial knowledge assessment</li>
+                            <li><i class="fas fa-user-clock"></i>Learning style profiling</li>
+                            <li><i class="fas fa-calendar-alt"></i>Time availability analysis</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 class="section-title">Step 2: Deep and Logical Math Curriculum System</h3>
 
-                <div class="content-description">
-                    <p>Our comprehensive mathematics curriculum system is built on a meticulously structured knowledge framework that emphasizes deep understanding and logical thinking.</p>
+            <!-- Step 2 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 2</div>
+                    <h3>AI-Driven Study Plan Creation</h3>
                 </div>
-
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-number">176</div>
-                        <div class="stat-label">Knowledge Points</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">27</div>
-                        <div class="stat-label">Micro-Modules</div>
-                        <div class="stat-sublabel">Unit-level clusters</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">14</div>
-                        <div class="stat-label">Mid-Modules</div>
-                        <div class="stat-sublabel">Chapter-level integration</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number">6</div>
-                        <div class="stat-label">Macro-Modules</div>
-                        <div class="stat-sublabel">Grade-level knowledge</div>
-                    </div>
-                </div>
-
-                <div class="challenge-section">
-                    <div class="challenge-header">
-                        <i class="fas fa-trophy"></i>
-                        <h4>Advanced Problem System</h4>
-                    </div>
-                    <div class="challenge-stats">
-                        <div class="challenge-number">
-                            <span class="big-number">21</span>
-                            <span class="number-label">Types of Challenging Problems</span>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-magic"></i>
                         </div>
-                        <div class="challenge-structure">
-                            <div class="structure-item">
-                                <i class="fas fa-book-open"></i>
-                                <span>1 Exemplar Problem</span>
-                            </div>
-                            <div class="structure-item">
-                                <i class="fas fa-layer-group"></i>
-                                <span>3 Practice Problems</span>
-                            </div>
-                            <div class="structure-item">
-                                <i class="fas fa-signal"></i>
-                                <span>Progressive Difficulty</span>
-                            </div>
-                        </div>
+                        <h3 class="card-title">AI Planning</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-cogs"></i>Curriculum generation</li>
+                            <li><i class="fas fa-bullseye"></i>Goal setting</li>
+                            <li><i class="fas fa-chart-pie"></i>Time allocation</li>
+                            <li><i class="fas fa-tasks"></i>Milestone planning</li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="content-features">
-                    <div class="feature-box hint-system-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-lightbulb"></i>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-check"></i>
                         </div>
-                        <h4>Intelligent Curriculum-Aware Hint System</h4>
-                        <p>Every question in our system comes with a carefully designed four-level hint structure, customized to your curriculum:</p>
-
-                        <div class="hint-system-content">
-                            <div class="hint-levels-container">
-                                <ul class="hint-levels">
-                                    <li>
-                                        <span>Level 1:</span>
-                                        <div class="hint-description">
-                                            High-level solution approach to guide initial thinking
-                                            <div class="curriculum-note">References your current textbook chapter</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Level 2:</span>
-                                        <div class="hint-description">
-                                            Key difficulties identification with prerequisite knowledge reminders
-                                            <div class="curriculum-note">Links to specific previous lessons</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Level 3:</span>
-                                        <div class="hint-description">
-                                            Detailed step-by-step solution with curriculum-specific explanations
-                                            <div class="curriculum-note">Uses familiar concepts from your course</div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Level 4:</span>
-                                        <div class="hint-description">
-                                            Problem-type analysis and connections to related topics
-                                            <div class="curriculum-note">Shows connections to your upcoming lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <h3 class="card-title">Tutor Review</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-clipboard-check"></i>Plan validation</li>
+                            <li><i class="fas fa-comments"></i>Feedback integration</li>
+                            <li><i class="fas fa-calendar-check"></i>Schedule finalization</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 class="section-title">Step 3: Adaptive Learning Path</h3>
 
-                <div class="content-description">
-                    <p>Our adaptive learning system creates a personalized learning journey for each student. Starting with comprehensive content study, students progress through carefully selected practice questions. Based on their performance and behavior, our AI system dynamically adjusts the learning path - whether that means increasing difficulty for mastered concepts, providing additional support for challenging areas, or revisiting fundamental concepts when needed.</p>
+            <!-- Step 3 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 3</div>
+                    <h3>Tutor Collaboration & Setup</h3>
                 </div>
-
-                <div class="adaptive-learning-flow">
-                    <div class="flow-container">
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <i class="fas fa-book-reader"></i>
-                            </div>
-                            <h4>Content Study</h4>
-                            <div class="content-types">
-                                <div class="content-type">
-                                    <i class="fas fa-file-text"></i>
-                                    <span>Textual Materials</span>
-                                </div>
-                                <div class="content-type">
-                                    <i class="fas fa-image"></i>
-                                    <span>Visual Content</span>
-                                </div>
-                                <div class="content-type">
-                                    <i class="fas fa-play-circle"></i>
-                                    <span>Interactive Examples</span>
-                                </div>
-                            </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
+                        <h3 class="card-title">Initial Contact</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-clock"></i>Within 24hr response</li>
+                            <li><i class="fas fa-file-contract"></i>Plan overview</li>
+                            <li><i class="fas fa-calendar-alt"></i>Meeting scheduling</li>
+                        </ul>
+                    </div>
 
-                        <div class="flow-arrow">
-                            <i class="fas fa-arrow-right"></i>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-video"></i>
                         </div>
-
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <i class="fas fa-pencil-alt"></i>
-                            </div>
-                            <h4>Practice & Assessment</h4>
-                            <ul class="feature-list">
-                                <li>Similar Question Sets</li>
-                                <li>Real-time Feedback</li>
-                                <li>Performance Tracking</li>
-                            </ul>
-                        </div>
-
-                        <div class="flow-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-
-                        <div class="flow-step">
-                            <div class="flow-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <h4>Analysis & Decision</h4>
-                            <div class="analysis-outcomes">
-                                <div class="outcome">
-                                    <i class="fas fa-arrow-up"></i>
-                                    <span>Increase Difficulty</span>
-                                </div>
-                                <div class="outcome">
-                                    <i class="fas fa-arrow-down"></i>
-                                    <span>Decrease Difficulty</span>
-                                </div>
-                                <div class="outcome">
-                                    <i class="fas fa-redo"></i>
-                                    <span>Review Prior Content</span>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="card-title">Setup Meeting</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-users"></i>Family consultation</li>
+                            <li><i class="fas fa-bullseye"></i>Goal finalization</li>
+                            <li><i class="fas fa-road"></i>Learning roadmap</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 class="section-title">Step 4: Real-time Supervision</h3>
 
-                <div class="content-description">
-                    <p>Our AI monitoring system works as a virtual teaching assistant, providing comprehensive supervision of each student's learning journey. The AI agent continuously collects and analyzes learning behavior data, generating detailed reports for our tutors to deliver personalized guidance.</p>
+            <!-- Step 4 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 4</div>
+                    <h3>Curriculum Implementation</h3>
                 </div>
-
-                <div class="supervision-flow">
-                    <div class="flow-step">
-                        <div class="flow-icon">
-                            <i class="fas fa-robot"></i>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-project-diagram"></i>
                         </div>
-                        <h4>AI Monitoring</h4>
-                        <ul class="feature-list">
-                            <li>Real-time engagement tracking</li>
-                            <li>Problem-solving behavior analysis</li>
-                            <li>Learning pattern recognition</li>
-                            <li>Hint usage monitoring</li>
+                        <h3 class="card-title">Content Mapping</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-link"></i>Material alignment</li>
+                            <li><i class="fas fa-cube"></i>Exercise generation</li>
+                            <li><i class="fas fa-photo-video"></i>Multimedia integration</li>
                         </ul>
                     </div>
 
-                    <div class="flow-step">
-                        <div class="flow-icon">
-                            <i class="fas fa-bell"></i>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tools"></i>
                         </div>
-                        <h4>Smart Alerts</h4>
-                        <ul class="feature-list">
-                            <li>Immediate struggle detection</li>
-                            <li>Focus level warnings</li>
-                            <li>Knowledge gap notifications</li>
-                            <li>Progress milestone alerts</li>
+                        <h3 class="card-title">Platform Setup</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-tachometer-alt"></i>Dashboard customization</li>
+                            <li><i class="fas fa-chart-line"></i>Tracking configuration</li>
+                            <li><i class="fas fa-user-shield"></i>Parent access setup</li>
                         </ul>
-                    </div>
-
-                    <div class="flow-step">
-                        <div class="flow-icon">
-                            <i class="fas fa-clipboard-list"></i>
-                        </div>
-                        <h4>AI Summary Reports</h4>
-                        <ul class="feature-list">
-                            <li>Session performance analysis</li>
-                            <li>Learning behavior patterns</li>
-                            <li>Concept mastery levels</li>
-                            <li>Time management metrics</li>
-                        </ul>
-                    </div>
-
-                    <div class="flow-step">
-                        <div class="flow-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
-                        </div>
-                        <h4>Tutor Actions</h4>
-                        <ul class="feature-list">
-                            <li>Personalized learning path adjustments</li>
-                            <li>Targeted intervention strategies</li>
-                            <li>Parent progress updates</li>
-                            <li>Custom exercise assignments</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="report-preview">
-                    <h4><i class="fas fa-file-alt"></i> Sample AI-Generated Report</h4>
-                    <div class="report-content">
-                        <div class="report-section">
-                            <h5>Learning Behavior</h5>
-                            <ul>
-                                <li>Average problem-solving time: 4.5 minutes</li>
-                                <li>Hint usage frequency: 20% of questions</li>
-                                <li>Most active study time: 4PM - 6PM</li>
-                                <li>Common struggle areas: Geometry proofs</li>
-                            </ul>
-                        </div>
-                        <div class="report-section">
-                            <h5>Progress Indicators</h5>
-                            <ul>
-                                <li>Completed topics: 12/15</li>
-                                <li>Success rate trend: +15% improvement</li>
-                                <li>Concept connections made: 8 new links</li>
-                                <li>Review suggestions: 3 topics</li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <h3 class="section-title">Step 5: Research-Driven Analytics</h3>
 
-                <div class="content-description">
-                    <p>Our dedicated research team continuously analyzes comprehensive student performance data to optimize the learning experience. Through sophisticated data analytics, we refine our curriculum design and question bank to ensure optimal learning outcomes.</p>
+            <!-- Step 5 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 5</div>
+                    <h3>Active Learning Phase</h3>
                 </div>
-
-                <div class="content-features">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-sitemap"></i>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
                         </div>
-                        <h4>Curriculum Analysis</h4>
-                        <p>Systematic evaluation of curriculum effectiveness:</p>
-                        <ul class="feature-list">
-                            <li>Knowledge point connections</li>
-                            <li>Learning path optimization</li>
-                            <li>Topic sequence assessment</li>
-                            <li>Prerequisite relationship validation</li>
+                        <h3 class="card-title">Progress Tracking</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-clock"></i>Time management</li>
+                            <li><i class="fas fa-check-double"></i>Completion rates</li>
+                            <li><i class="fas fa-brain"></i>Engagement analysis</li>
                         </ul>
                     </div>
 
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-tasks"></i>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-life-ring"></i>
                         </div>
-                        <h4>Question Bank Optimization</h4>
-                        <p>Data-driven question assessment:</p>
-                        <ul class="feature-list">
-                            <li>Difficulty level calibration</li>
-                            <li>Success rate analysis</li>
-                            <li>Time consumption metrics</li>
-                            <li>Common error pattern identification</li>
+                        <h3 class="card-title">Learning Support</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-lightbulb"></i>Smart hints</li>
+                            <li><i class="fas fa-film"></i>Video explanations</li>
+                            <li><i class="fas fa-list-ol"></i>Step-by-step guides</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 6</div>
+                    <h3>Progress Management</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="card-title">Daily Insights</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chart-bar"></i>Time distribution</li>
+                            <li><i class="fas fa-percentage"></i>Success rates</li>
+                            <li><i class="fas fa-exclamation-triangle"></i>Gap alerts</li>
                         </ul>
                     </div>
 
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-sliders-h"></i>
                         </div>
-                        <h4>Performance Metrics</h4>
-                        <p>Comprehensive data collection:</p>
-                        <ul class="feature-list">
-                            <li>Student progress tracking</li>
-                            <li>Learning efficiency measurement</li>
-                            <li>Knowledge retention rates</li>
-                            <li>Skill development curves</li>
+                        <h3 class="card-title">Weekly Adjustments</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-balance-scale"></i>Difficulty tuning</li>
+                            <li><i class="fas fa-tachometer-alt"></i>Pace control</li>
+                            <li><i class="fas fa-cogs"></i>Resource optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 7</div>
+                    <h3>Completion & Advancement</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <h3 class="card-title">Next Level</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-graduation-cap"></i>Grade advancement</li>
+                            <li><i class="fas fa-star"></i>Advanced topics</li>
+                            <li><i class="fas fa-certificate"></i>Skill certification</li>
                         </ul>
                     </div>
 
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-cogs"></i>
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-infinity"></i>
                         </div>
-                        <h4>Continuous Improvement</h4>
-                        <p>Iterative enhancement process:</p>
-                        <ul class="feature-list">
-                            <li>Regular content updates</li>
-                            <li>Question refinement</li>
-                            <li>Difficulty adjustment</li>
-                            <li>Learning path optimization</li>
+                        <h3 class="card-title">Continuous Learning</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-redo"></i>Reinforcement cycles</li>
+                            <li><i class="fas fa-chart-line"></i>Progress tracking</li>
+                            <li><i class="fas fa-user-graduate"></i>Lifetime access</li>
                         </ul>
                     </div>
                 </div>
