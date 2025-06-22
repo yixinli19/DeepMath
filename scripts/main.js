@@ -471,6 +471,19 @@ const translations = {
         // Problems Section
         'problems.title': 'Explore Sample Problems',
         'problems.subtitle': 'Try our challenging problems with step-by-step AI guidance',
+        
+        // Why Choose Section
+        'whyChoose.title': 'Why Choose DeepMath?',
+        'whyChoose.subtitle': 'Built on proven foundations with cutting-edge innovation',
+        'whyChoose.foundation.title': '30+ Years of Proven Excellence',
+        'whyChoose.foundation.description': 'Built on over 30 years of China\'s foundation math education system, proven to produce some of the world\'s strongest mathematical minds and consistently top-performing students in international assessments.',
+        'whyChoose.olympic.title': 'Olympic-Level Challenges',
+        'whyChoose.olympic.description': 'Our curriculum includes competition-grade problems designed to challenge and inspire advanced learners, preparing students for mathematical olympiads and fostering deep analytical thinking.',
+        'whyChoose.ai.title': 'Cutting-Edge AI Technology',
+        'whyChoose.ai.description': 'Powered by advanced AI technology in education, featuring Socratic questioning methods that guide students to discover solutions independently while providing personalized learning experiences.',
+        'whyChoose.trust.years': 'Years of Educational Excellence',
+        'whyChoose.trust.success': 'Student Success Rate',
+        'whyChoose.trust.students': 'Students Worldwide',
         'problems.tab1': 'Numbers and Algebra',
         'problems.tab2': 'Geometry',
         'problems.tab3': 'Statistics and Probability',
@@ -915,6 +928,19 @@ const translations = {
         // Problems Section
         'problems.title': '探索示例问题',
         'problems.subtitle': '尝试我们具有挑战性的问题，享受AI逐步引导',
+        
+        // Why Choose Section
+        'whyChoose.title': '为什么选择DeepMath？',
+        'whyChoose.subtitle': '基于经验验证的基础，融合前沿创新技术',
+        'whyChoose.foundation.title': '30+年经验证的卓越',
+        'whyChoose.foundation.description': '基于中国30多年基础数学教育体系构建，经过验证能够培养出世界上最强的数学人才，在国际评估中持续取得顶尖成绩的学生。',
+        'whyChoose.olympic.title': '奥林匹克级别的挑战',
+        'whyChoose.olympic.description': '我们的课程包含竞赛级别的问题，旨在挑战和激发高级学习者，为学生参加数学奥林匹克竞赛做准备，培养深度分析思维。',
+        'whyChoose.ai.title': '前沿AI教育技术',
+        'whyChoose.ai.description': '采用教育领域前沿AI技术驱动，特色苏格拉底式提问方法，引导学生独立发现解决方案，同时提供个性化学习体验。',
+        'whyChoose.trust.years': '年教育卓越经验',
+        'whyChoose.trust.success': '学生成功率',
+        'whyChoose.trust.students': '全球学生',
         'problems.tab1': '数字与代数',
         'problems.tab2': '几何',
         'problems.tab3': '统计与概率',
