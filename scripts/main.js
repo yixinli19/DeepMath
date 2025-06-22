@@ -461,8 +461,8 @@ const translations = {
         'nav.signup': 'Start Free Trial',
         
         // Hero Section
-        'hero.title': 'Math That Actually Challenges Your Gifted Child',
-        'hero.subtitle': 'We provide advanced K-12 math problems with AI tutoring that adapts to your child\'s exceptional abilities. No more boredom, just growth.',
+        'hero.title': 'Where Exceptional Minds Deserve More.',
+        'hero.subtitle': 'Built on the world’s most advanced math education systems, DeepMath nurtures your child’s talent with depth, logic, and precision—turning potential into mastery.',
         'hero.videoTitle': 'See How It Works',
         'hero.videoDesc': 'Watch a real student work through challenging problems with our AI tutor',
         'hero.startTrial': 'Start Free Trial',
@@ -905,8 +905,8 @@ const translations = {
         'nav.signup': '开始免费试用',
         
         // Hero Section
-        'hero.title': '真正挑战您天才孩子的数学',
-        'hero.subtitle': '我们提供高级K-12数学题目，配备AI辅导，适应您孩子的卓越能力。不再无聊，只有成长。',
+        'hero.title': '让优秀的孩子，不止于优秀。',
+        'hero.subtitle': '依托全球顶尖数学教育体系，DeepMath 精准挖掘孩子的潜力，用系统性的训练和智能化辅导，打造真正领先的数学能力。',
         'hero.videoTitle': '看看它是如何工作的',
         'hero.videoDesc': '观看真实学生在我们的AI导师指导下解决挑战性问题',
         'hero.startTrial': '开始免费试用',
