@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login active" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="auth-title">Welcome Back</h1>
+                    <p class="auth-subtitle">Sign in to continue your mathematical journey</p>
+                </div>
+                
+                <div class="auth-form">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="form-error" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" name="password" class="form-input" required>
+                            <div class="form-error" id="passwordError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Remember me</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Sign In
+                            </button>
+                        </div>
+                        
+                        <div class="text-center">
+                            <a href="#" style="color: #2563eb; text-decoration: none;">Forgot your password?</a>
+                        </div>
+                    </form>
+                    
+                    <div class="alert alert-success" id="successMessage" style="display: none;">
+                        Login successful! Redirecting to dashboard...
+                    </div>
+                    
+                    <div class="alert alert-error" id="errorMessage" style="display: none;">
+                        Invalid email or password. Please try again.
+                    </div>
+                </div>
+                
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                    <p><a href="index.html">← Back to Home</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Basic validation
+            let hasError = false;
+            
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required';
+                document.getElementById('email').classList.add('error');
+                hasError = true;
+            } else {
+                document.getElementById('email').classList.remove('error');
+            }
+            
+            if (!password) {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                document.getElementById('password').classList.add('error');
+                hasError = true;
+            } else {
+                document.getElementById('password').classList.remove('error');
+            }
+            
+            if (hasError) return;
+            
+            // Simulate login process
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.classList.add('btn-loading');
+            submitBtn.textContent = 'Signing in...';
+            
+            setTimeout(() => {
+                // Demo: accept any email/password combination
+                document.getElementById('successMessage').style.display = 'block';
+                
+                setTimeout(() => {
+                    // In a real app, redirect to dashboard
+                    window.location.href = 'index.html';
+                }, 1500);
+            }, 1000);
+        });
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

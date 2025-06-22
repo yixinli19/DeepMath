@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Inquiries - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .media-hero {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: var(--space-16) 0 var(--space-12);
+            text-align: center;
+        }
+        
+        .media-content {
+            padding: var(--space-12) 0;
+        }
+        
+        .media-kit-section {
+            background: var(--color-gray-50);
+            padding: var(--space-8) 0;
+            margin: var(--space-8) 0;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .resource-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+            margin: 0 auto var(--space-4);
+        }
+        
+        .stats-highlight {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-8) 0;
+            text-align: center;
+            margin: var(--space-8) 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-2);
+        }
+        
+        .contact-form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-8);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .timeline-item {
+            border-left: 3px solid var(--color-primary);
+            padding-left: var(--space-4);
+            margin-bottom: var(--space-6);
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--color-primary);
+        }
+        
+        .timeline-date {
+            color: var(--color-gray-600);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="media-hero">
+        <div class="container">
+            <h1 class="hero-title">Media Inquiries</h1>
+            <p class="hero-subtitle">Resources and information for journalists, bloggers, and media professionals</p>
+        </div>
+    </section>
+
+    <!-- Media Content -->
+    <section class="media-content">
+        <div class="container">
+            <!-- Company Overview -->
+            <div class="text-center" style="margin-bottom: var(--space-12);">
+                <h2 class="section-title">About DeepMath</h2>
+                <p class="section-subtitle" style="max-width: 800px; margin: 0 auto;">
+                    DeepMath is revolutionizing K-12 mathematics education through AI-powered personalized learning. 
+                    Our platform challenges gifted students while providing adaptive support for all learners, 
+                    combining advanced problem-solving with Socratic AI tutoring.
+                </p>
+            </div>
+
+            <!-- Key Statistics -->
+            <div class="stats-highlight">
+                <div class="container">
+                    <h2>DeepMath by the Numbers</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Active Students</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Math Problems</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">96%</div>
+                            <div class="stat-label">Grade Improvement</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.9/5</div>
+                            <div class="stat-label">Parent Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Kit -->
+            <div class="media-kit-section">
+                <div class="container">
+                    <h2 class="section-title">Media Kit & Resources</h2>
+                    <p class="section-subtitle">Download our media kit for logos, images, and company information</p>
+                    
+                    <div class="resource-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <h3>Press Kit</h3>
+                            <p>Complete media kit with logos, screenshots, and company facts</p>
+                            <a href="#" class="btn btn-primary">Download ZIP</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <h3>High-Res Images</h3>
+                            <p>Product screenshots, team photos, and branded graphics</p>
+                            <a href="#" class="btn btn-outline">View Gallery</a>
+                        </div>
+                        
+                        <div class="resource-card">
+                            <div class="resource-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h3>Fact Sheet</h3>
+                            <p>Key statistics, company milestones, and product information</p>
+                            <a href="#" class="btn btn-outline">Download PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Timeline -->
+            <div style="margin: var(--space-12) 0;">
+                <h2 class="section-title">Company Milestones</h2>
+                <div style="max-width: 600px; margin: var(--space-8) auto;">
+                    <div class="timeline-item">
+                        <div class="timeline-date">January 2024</div>
+                        <h3>DeepMath Platform Launch</h3>
+                        <p>Official launch of AI-powered mathematics education platform</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">March 2024</div>
+                        <h3>10,000 Students Milestone</h3>
+                        <p>Reached 10,000 active students across 500+ schools</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">June 2024</div>
+                        <h3>AI Tutor Enhancement</h3>
+                        <p>Launched advanced Socratic AI tutoring with emotion detection</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">September 2024</div>
+                        <h3>Competition Math Program</h3>
+                        <p>Introduced specialized training for math competitions and olympiads</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">December 2024</div>
+                        <h3>50,000 Students</h3>
+                        <p>Celebrated reaching 50,000 active students worldwide</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div style="margin: var(--space-12) 0;">
+                <h2 class="section-title">Media Contact</h2>
+                <p class="section-subtitle">Get in touch for interviews, press releases, or additional information</p>
+                
+                <div class="contact-form-container">
+                    <form id="mediaContactForm">
+                        <div class="form-group">
+                            <label for="outlet" class="form-label">Media Outlet/Publication</label>
+                            <input type="text" id="outlet" name="outlet" class="form-input" required>
+                            <div class="form-error" id="outletError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                            <div class="form-error" id="nameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="form-error" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                            <div class="form-error" id="phoneError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="deadline" class="form-label">Story Deadline</label>
+                            <input type="date" id="deadline" name="deadline" class="form-input">
+                            <div class="form-error" id="deadlineError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject/Story Angle</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Brief description of your story" required>
+                            <div class="form-error" id="subjectError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Please provide details about your inquiry, interview requests, or information needed..." required></textarea>
+                            <div class="form-error" id="messageError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Media Inquiry
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="alert alert-success" id="successMessage" style="display: none;">
+                        <i class="fas fa-check-circle"></i> Thank you for your inquiry! Our media team will respond within 24 hours.
+                    </div>
+                    
+                    <div class="alert alert-error" id="errorMessage" style="display: none;">
+                        Please correct the errors above and try again.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direct Contact Info -->
+            <div class="text-center" style="margin: var(--space-8) 0;">
+                <div style="background: var(--color-gray-50); padding: var(--space-6); border-radius: var(--border-radius-lg); max-width: 500px; margin: 0 auto;">
+                    <h3>Direct Media Contact</h3>
+                    <p><strong>Media Relations Team</strong></p>
+                    <p><i class="fas fa-envelope"></i> media@deepmath.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-clock"></i> Response time: Within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DeepMath</h3>
+                    <p data-i18n="footer.tagline">Mastery Through Challenge, Accelerated by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about.html" data-i18n="footer.about">About us</a>
+                    <a href="contact.html" data-i18n="footer.contact">Contact us</a>
+                    <a href="careers.html" data-i18n="footer.careers">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.resources">Resources</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+                    <a href="terms.html" data-i18n="footer.terms">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 DeepMath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mediaContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.form-error').forEach(el => el.textContent = '');
+            document.querySelectorAll('.form-input, .form-textarea').forEach(el => el.classList.remove('error'));
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+
+            // Basic validation
+            let hasError = false;
+            const requiredFields = ['outlet', 'name', 'email', 'subject', 'message'];
+            
+            requiredFields.forEach(field => {
+                const element = document.getElementById(field);
+                if (!element.value.trim()) {
+                    document.getElementById(field + 'Error').textContent = 'This field is required';
+                    element.classList.add('error');
+                    hasError = true;
+                }
+            });
+
+            // Email validation
+            const email = document.getElementById('email').value;
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('email').classList.add('error');
+                hasError = true;
+            }
+
+            if (hasError) {
+                document.getElementById('errorMessage').style.display = 'block';
+                return;
+            }
+
+            // Simulate form submission
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.classList.add('btn-loading');
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('mediaContactForm').reset();
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Media Inquiry';
+            }, 1500);
+        });
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

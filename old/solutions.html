@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepMath - Our Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .metric-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .metric-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .metric-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 8px;
+            color: var(--primary-color);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #edf2f7;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .analysis-container {
+            display: flex;
+            gap: 1.5rem;
+            align-items: stretch;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .pentagon-container {
+            flex: 0 0 300px;
+            min-width: 300px;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .metrics-group {
+            flex: 1;
+            display: flex;
+            gap: 1.5rem;
+            min-width: 0;
+            flex-wrap: nowrap;
+        }
+
+        .difficulty-levels {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .difficulty-box {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafb;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .difficulty-box .percentage {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .modeling-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .modeling-description {
+            margin: -0.5rem 0 2rem 0;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 900px;
+        }
+
+        .modeling-title, .section-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            text-align: left;
+        }
+
+        @media (max-width: 1024px) {
+            .analysis-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .pentagon-container {
+                flex: none;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .metrics-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .metric-box {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .metric-box {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto !important;
+        }
+
+        .metric-title {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .content-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .feature-box {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .feature-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .hint-levels {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hint-levels li {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .hint-levels span {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .content-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin: 1rem 0 2rem;
+            max-width: 900px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0.8rem;
+            margin-top: 0.4rem;
+        }
+
+        .feature-list li {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.3rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .feature-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .feature-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-box p {
+            margin-bottom: 0.4rem;
+            color: var(--text-primary);
+        }
+
+        .feature-list {
+            margin-top: auto;  /* 将列表推到底部 */
+        }
+
+        .content-description ul {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .content-description ul ul li {
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stat-sublabel {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+        }
+
+        .challenge-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .challenge-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .challenge-header i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .challenge-header h4 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .challenge-stats {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .challenge-number {
+            text-align: center;
+            padding-right: 2rem;
+            border-right: 2px solid var(--border-color);
+        }
+
+        .big-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .number-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .challenge-structure {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .structure-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .structure-item i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .challenge-stats {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .challenge-number {
+                border-right: none;
+                border-bottom: 2px solid var(--border-color);
+                padding: 0 0 1rem 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .hint-system-box {
+            grid-column: 1 / -1; /* Make it span full width */
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hint-system-content {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .hint-levels-container {
+            flex: 1;
+        }
+
+        .hint-levels li {
+            background: rgba(16, 163, 127, 0.03);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(16, 163, 127, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .hint-levels li:hover {
+            transform: translateX(5px);
+            background: rgba(16, 163, 127, 0.05);
+        }
+
+        .hint-description {
+            margin-top: 0.3rem;
+            color: var(--text-primary);
+        }
+
+        .curriculum-note {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .hint-system-content {
+                flex-direction: column;
+            }
+
+            .hint-levels li {
+                padding: 0.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hint-description {
+                font-size: 0.9rem;
+            }
+
+            .curriculum-note {
+                font-size: 0.8rem;
+            }
+        }
+
+        .supervision-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .flow-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .flow-step h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .report-preview {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .report-preview h4 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .report-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .report-section h5 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .report-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .report-section ul li {
+            color: var(--text-secondary);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .report-section ul li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .supervision-flow {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .supervision-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .report-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        .adaptive-learning-flow {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .flow-step {
+            flex: 1;
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--background-subtle);
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .flow-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .flow-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .flow-step h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .content-types, .analysis-outcomes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .content-type, .outcome {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .flow-arrow {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .flow-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .flow-step {
+                width: 100%;
+            }
+        }
+
+        /* New Process Flow Styles */
+        .process-flow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .process-step {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(16, 163, 127, 0.08);
+            padding: 3rem;
+            margin: 3rem 0;
+            border: none;
+        }
+
+        .step-header {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(16, 163, 127, 0.03);
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            font-size: 1.6rem;
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 8px 20px rgba(16, 163, 127, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .step-content {
+            display: grid;
+            gap: 2rem;
+        }
+
+        /* Component Cards */
+        .component-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(16, 163, 127, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(16, 163, 127, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(16, 163, 127, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #2a5298;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .card-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .card-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .card-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(16, 163, 127, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .card-list li:last-child {
+            border-bottom: none;
+        }
+
+        .card-list i {
+            color: var(--primary-color);
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Enhanced Icon Styling */
+        .section-title-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(16, 163, 127, 0.1);
+            padding: 1.5rem;
+            border-radius: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Timeline Enhancement */
+        .timeline-event {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin: 1.5rem 0;
+        }
+
+        .event-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .process-step {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .component-card {
+                padding: 1.5rem;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+
+        .step-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 1rem 0;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .step-header h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .step-number {
+            font-size: 1.8rem;
+            background: none;
+            color: var(--primary-color);
+            width: auto;
+            height: auto;
+            margin: 0 0 1rem 0;
+            box-shadow: none;
+            font-weight: 700;
+            text-align: center;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">DeepMath</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <!-- <li><a href="demo.html">Demo</a></li> -->
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1 class="section-title">Our Learning Process</h1>
+        <p class="section-subtitle">7-Step AI-Powered Learning Journey for Continuous Improvement</p>
+
+        <div class="process-flow">
+            <!-- Step 1 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 1</div>
+                    <h3>Student Onboarding</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3 class="card-title">Student Actions</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-check"></i>Grade level selection</li>
+                            <li><i class="fas fa-check"></i>Topic preference indication</li>
+                            <li><i class="fas fa-check"></i>Comprehensive assessment test</li>
+                            <li><i class="fas fa-check"></i>Learning style survey completion</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="card-title">AI Analysis</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chart-line"></i>Initial knowledge assessment</li>
+                            <li><i class="fas fa-user-clock"></i>Learning style profiling</li>
+                            <li><i class="fas fa-calendar-alt"></i>Time availability analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 2</div>
+                    <h3>AI-Driven Study Plan Creation</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h3 class="card-title">AI Planning</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-cogs"></i>Curriculum generation</li>
+                            <li><i class="fas fa-bullseye"></i>Goal setting</li>
+                            <li><i class="fas fa-chart-pie"></i>Time allocation</li>
+                            <li><i class="fas fa-tasks"></i>Milestone planning</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3 class="card-title">Tutor Review</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-clipboard-check"></i>Plan validation</li>
+                            <li><i class="fas fa-comments"></i>Feedback integration</li>
+                            <li><i class="fas fa-calendar-check"></i>Schedule finalization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 3</div>
+                    <h3>Tutor Collaboration & Setup</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="card-title">Initial Contact</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-clock"></i>Within 24hr response</li>
+                            <li><i class="fas fa-file-contract"></i>Plan overview</li>
+                            <li><i class="fas fa-calendar-alt"></i>Meeting scheduling</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="card-title">Setup Meeting</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-users"></i>Family consultation</li>
+                            <li><i class="fas fa-bullseye"></i>Goal finalization</li>
+                            <li><i class="fas fa-road"></i>Learning roadmap</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 4</div>
+                    <h3>Curriculum Implementation</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="card-title">Content Mapping</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-link"></i>Material alignment</li>
+                            <li><i class="fas fa-cube"></i>Exercise generation</li>
+                            <li><i class="fas fa-photo-video"></i>Multimedia integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="card-title">Platform Setup</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-tachometer-alt"></i>Dashboard customization</li>
+                            <li><i class="fas fa-chart-line"></i>Tracking configuration</li>
+                            <li><i class="fas fa-user-shield"></i>Parent access setup</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 5</div>
+                    <h3>Active Learning Phase</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="card-title">Progress Tracking</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-clock"></i>Time management</li>
+                            <li><i class="fas fa-check-double"></i>Completion rates</li>
+                            <li><i class="fas fa-brain"></i>Engagement analysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-life-ring"></i>
+                        </div>
+                        <h3 class="card-title">Learning Support</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-lightbulb"></i>Smart hints</li>
+                            <li><i class="fas fa-film"></i>Video explanations</li>
+                            <li><i class="fas fa-list-ol"></i>Step-by-step guides</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 6</div>
+                    <h3>Progress Management</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="card-title">Daily Insights</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-chart-bar"></i>Time distribution</li>
+                            <li><i class="fas fa-percentage"></i>Success rates</li>
+                            <li><i class="fas fa-exclamation-triangle"></i>Gap alerts</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <h3 class="card-title">Weekly Adjustments</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-balance-scale"></i>Difficulty tuning</li>
+                            <li><i class="fas fa-tachometer-alt"></i>Pace control</li>
+                            <li><i class="fas fa-cogs"></i>Resource optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="process-step">
+                <div class="step-header">
+                    <div class="step-number">Step 7</div>
+                    <h3>Completion & Advancement</h3>
+                </div>
+                <div class="step-content grid-columns">
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-arrow-up"></i>
+                        </div>
+                        <h3 class="card-title">Next Level</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-graduation-cap"></i>Grade advancement</li>
+                            <li><i class="fas fa-star"></i>Advanced topics</li>
+                            <li><i class="fas fa-certificate"></i>Skill certification</li>
+                        </ul>
+                    </div>
+
+                    <div class="component-card">
+                        <div class="card-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3 class="card-title">Continuous Learning</h3>
+                        <ul class="card-list">
+                            <li><i class="fas fa-redo"></i>Reinforcement cycles</li>
+                            <li><i class="fas fa-chart-line"></i>Progress tracking</li>
+                            <li><i class="fas fa-user-graduate"></i>Lifetime access</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 DeepMath. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('pentagonChart').getContext('2d');
+            const pentagonChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Learning Strategy', 'Motivation', 'Self-Confidence', 'Focus', 'Perseverance'],
+                    datasets: [{
+                        label: 'Learning Ability',
+                        data: [85, 70, 80, 90, 75], // Example data
+                        backgroundColor: 'rgba(16, 163, 127, 0.2)',
+                        borderColor: 'rgba(16, 163, 127, 1)',
+                        borderWidth: 2,
+                        fill: true,
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

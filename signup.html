@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup active" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-container">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1 class="auth-title">Join DeepMath</h1>
+                    <p class="auth-subtitle">Start your personalized math learning journey today</p>
+                </div>
+                
+                <div class="auth-form">
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            <div class="form-error" id="firstNameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            <div class="form-error" id="lastNameError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="form-error" id="emailError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" id="password" name="password" class="form-input" required>
+                            <div class="form-error" id="passwordError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required>
+                            <div class="form-error" id="confirmPasswordError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="plan" class="form-label">Choose Your Plan</label>
+                            <select id="plan" name="plan" class="form-select" required>
+                                <option value="">Select a plan</option>
+                                <option value="bronze">Bronze - $12.99/month (14-day free trial)</option>
+                                <option value="silver">Silver - $19.99/month (14-day free trial)</option>
+                                <option value="gold">Gold - $29.99/month (14-day free trial)</option>
+                            </select>
+                            <div class="form-error" id="planError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="referralCode" class="form-label">Referral Code <span style="color: #6b7280; font-weight: normal;">(Optional)</span></label>
+                            <input type="text" id="referralCode" name="referralCode" class="form-input" placeholder="Enter referral code if you have one">
+                            <div class="form-error" id="referralCodeError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to the <a href="terms.html" style="color: #2563eb;">Terms of Service</a> and <a href="privacy.html" style="color: #2563eb;">Privacy Policy</a></label>
+                            </div>
+                            <div class="form-error" id="termsError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Start Free Trial
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="alert alert-success" id="successMessage" style="display: none;">
+                        Account created successfully! Please check your email to verify your account.
+                    </div>
+                    
+                    <div class="alert alert-error" id="errorMessage" style="display: none;">
+                        Please correct the errors above and try again.
+                    </div>
+                </div>
+                
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                    <p><a href="index.html">← Back to Home</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            const errorElements = document.querySelectorAll('.form-error');
+            errorElements.forEach(el => el.textContent = '');
+            
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => input.classList.remove('error'));
+            
+            document.getElementById('errorMessage').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'none';
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const plan = document.getElementById('plan').value;
+            const referralCode = document.getElementById('referralCode').value;
+            const terms = document.getElementById('terms').checked;
+            
+            // Valid referral codes (in a real app, this would be fetched from a database)
+            const validReferralCodes = [
+                'TEACHER2024',
+                'STUDENT50',
+                'FAMILY30',
+                'MATH100',
+                'ACADEMY25',
+                'FRIEND15',
+                'SCHOOL40'
+            ];
+            
+            // Validation
+            let hasError = false;
+            
+            if (!firstName.trim()) {
+                document.getElementById('firstNameError').textContent = 'First name is required';
+                document.getElementById('firstName').classList.add('error');
+                hasError = true;
+            }
+            
+            if (!lastName.trim()) {
+                document.getElementById('lastNameError').textContent = 'Last name is required';
+                document.getElementById('lastName').classList.add('error');
+                hasError = true;
+            }
+            
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required';
+                document.getElementById('email').classList.add('error');
+                hasError = true;
+            } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address';
+                document.getElementById('email').classList.add('error');
+                hasError = true;
+            }
+            
+            if (!password) {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                document.getElementById('password').classList.add('error');
+                hasError = true;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+                document.getElementById('password').classList.add('error');
+                hasError = true;
+            }
+            
+            if (!confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Please confirm your password';
+                document.getElementById('confirmPassword').classList.add('error');
+                hasError = true;
+            } else if (password !== confirmPassword) {
+                document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+                document.getElementById('confirmPassword').classList.add('error');
+                hasError = true;
+            }
+            
+            if (!plan) {
+                document.getElementById('planError').textContent = 'Please select a plan';
+                document.getElementById('plan').classList.add('error');
+                hasError = true;
+            }
+            
+            // Referral code validation - only validate if a code is entered
+            if (referralCode.trim() && !validReferralCodes.includes(referralCode.trim().toUpperCase())) {
+                document.getElementById('referralCodeError').textContent = 'Invalid referral code. Please check and try again.';
+                document.getElementById('referralCode').classList.add('error');
+                hasError = true;
+            }
+            
+            if (!terms) {
+                document.getElementById('termsError').textContent = 'You must agree to the terms and conditions';
+                hasError = true;
+            }
+            
+            if (hasError) return;
+            
+            // Simulate account creation
+            const submitBtn = document.querySelector('button[type="submit"]');
+            submitBtn.classList.add('btn-loading');
+            submitBtn.textContent = 'Creating Account...';
+            
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'block';
+                
+                setTimeout(() => {
+                    // In a real app, redirect to dashboard or welcome page
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 1500);
+        });
+        
+        // Update button text based on selected plan
+        document.addEventListener('change', function(e) {
+            if (e.target.name === 'plan') {
+                const submitBtn = document.querySelector('button[type="submit"]');
+                if (e.target.value === 'trial') {
+                    submitBtn.textContent = 'Start Free Trial';
+                } else {
+                    submitBtn.textContent = 'Create Account & Subscribe';
+                }
+            }
+        });
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

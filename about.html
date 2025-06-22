@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: var(--space-16) 0 var(--space-12);
+            text-align: center;
+        }
+        
+        .about-content {
+            padding: var(--space-12) 0;
+        }
+        
+        .mission-section {
+            background: var(--color-surface);
+            padding: var(--space-12) 0;
+            margin: var(--space-8) 0;
+        }
+        
+        .team-section {
+            padding: var(--space-12) 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-8);
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--space-6);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--color-gray-300);
+            margin: 0 auto var(--space-4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-2xl);
+            color: var(--color-gray-600);
+            overflow: hidden;
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .member-name {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-2);
+        }
+        
+        .member-title {
+            font-size: var(--font-size-lg);
+            color: var(--color-secondary);
+            margin-bottom: var(--space-3);
+        }
+        
+        .member-bio {
+            color: var(--color-gray-700);
+            line-height: 1.6;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-8);
+        }
+        
+        .value-card {
+            background: white;
+            border-radius: var(--border-radius-md);
+            padding: var(--space-6);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--color-primary-light);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-xl);
+            margin: 0 auto var(--space-4);
+        }
+        
+        .stats-section {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-12) 0;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-8);
+            margin-top: var(--space-8);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-2);
+        }
+        
+        .stat-label {
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-page">
+        
+
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title" data-i18n="about.team.title">Meet Our Team</h2>
+                    <p class="section-subtitle" data-i18n="about.team.subtitle">Passionate educators and technologists dedicated to advancing mathematical education</p>
+                </div>
+                
+                <div class="team-grid">
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="imgs/yanan.jpg" alt="Yanan Zhu">
+                        </div>
+                        <h3 class="member-name" data-i18n="about.team.yanan.name">Yanan Zhu</h3>
+                        <p class="member-title" data-i18n="about.team.yanan.title">Founder & Business Lead</p>
+                        <p class="member-bio" data-i18n="about.team.yanan.bio">M.S. and B.S. from Tsinghua University. Former Vice President of Microsoft Greater China, Managing Director of Accenture Greater China (Fortune 500's only consulting company), and Partner at IBM Global Consulting. Expert in enterprise digital transformation, successfully guided multiple renowned companies to IPO.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="imgs/meilu.jpg" alt="Meilu Zeng">
+                        </div>
+                        <h3 class="member-name" data-i18n="about.team.meilu.name">Meilu Zeng</h3>
+                        <p class="member-title" data-i18n="about.team.meilu.title">Curriculum & Education Specialist</p>
+                        <p class="member-bio" data-i18n="about.team.meilu.bio">Former Mathematics Research Specialist in Jinan City, China, with nearly 30 years of experience in high school entrance examination development. Special-grade Teacher of Shandong Province. Council member of Mathematics Research Association, China Education Society Mathematics Education Research Center. Key member of Ministry of Education's research teams on examination evaluation and teaching quality monitoring.</p>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="imgs/yixin.jpg" alt="Yixin Li">
+                        </div>
+                        <h3 class="member-name" data-i18n="about.team.yixin.name">Yixin Li</h3>
+                        <p class="member-title" data-i18n="about.team.yixin.title">Product & Technology Lead</p>
+                        <p class="member-bio" data-i18n="about.team.yixin.bio">M.S. and B.S. from NC State University. Solution Product Manager in Lenovo Global Future Leaders Program. Innovator in applying large language models and reinforcement learning to enhance educational experiences. Successfully led the development of AI-powered educational platforms that bridge theoretical research with practical applications.</p>
+                    </div>
+                    
+                    
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="imgs/noboru.jpg" alt="Dr. Noboru Matsuda">
+                        </div>
+                        <h3 class="member-name" data-i18n="about.team.noboru.name">Dr. Noboru Matsuda</h3>
+                        <p class="member-title" data-i18n="about.team.noboru.title">AI Research Advisor</p>
+                        <p class="member-bio" data-i18n="about.team.noboru.bio">Associate Professor of Computer Science and Director of the Innovative Educational Computing Laboratory at NC State University. Ph.D. in Intelligent Systems from University of Pittsburgh. Specializes in AI technology innovation for education, focusing on machine learning and computational approaches to understand and improve learning processes. Member of the Digital Transformation of Education cluster at NCSU Chancellor's Faculty Excellence Program.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DeepMath</h3>
+                    <p data-i18n="footer.tagline">Mastery Through Challenge, Accelerated by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about.html" data-i18n="footer.about">About us</a>
+                    <a href="contact.html" data-i18n="footer.contact">Contact us</a>
+                    <a href="careers.html" data-i18n="footer.careers">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.resources">Resources</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+                    <a href="terms.html" data-i18n="footer.terms">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 DeepMath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

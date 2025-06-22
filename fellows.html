@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fellows Program - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-page">
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; padding: var(--space-16) 0 var(--space-12); text-align: center;">
+            <div class="container">
+                <h1 class="hero-title">DeepMath Fellows Program</h1>
+                <p class="hero-subtitle">Empowering exceptional educators to lead the future of mathematics education</p>
+            </div>
+        </section>
+
+        <!-- Program Overview -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--space-12);">
+                    <h2 class="section-title">Join Our Community of Educational Leaders</h2>
+                    <p class="section-subtitle" style="max-width: 800px; margin: 0 auto;">
+                        The DeepMath Fellows Program recognizes and supports outstanding educators who are pioneering 
+                        innovative approaches to mathematics education through AI-enhanced learning.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-primary-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-3xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Recognition</h3>
+                        <p>Join an elite community of educators recognized for excellence in mathematics instruction</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-secondary-light); color: var(--color-secondary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-3xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Networking</h3>
+                        <p>Connect with like-minded educators from around the world and share best practices</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-tertiary-light); color: var(--color-tertiary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-3xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>Access to cutting-edge tools and early preview of new educational technologies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fellowship Tracks -->
+        <section style="background: var(--color-gray-50); padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Fellowship Tracks</h2>
+                <p class="section-subtitle">Choose the track that aligns with your expertise and interests</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <!-- Teaching Fellow -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-primary-light); color: var(--color-primary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <h3>Teaching Fellow</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">Classroom Excellence</p>
+                            </div>
+                        </div>
+                        <p style="margin-bottom: var(--space-4);">For exceptional classroom teachers who demonstrate innovative use of AI-enhanced mathematics instruction and achieve outstanding student outcomes.</p>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Classroom implementation support</li>
+                            <li>Curriculum development opportunities</li>
+                            <li>Student progress research participation</li>
+                            <li>Professional development workshops</li>
+                        </ul>
+                        <a href="#apply" class="btn btn-primary">Apply Now</a>
+                    </div>
+
+                    <!-- Research Fellow -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-secondary-light); color: var(--color-secondary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div>
+                                <h3>Research Fellow</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">Educational Research</p>
+                            </div>
+                        </div>
+                        <p style="margin-bottom: var(--space-4);">For researchers and academics studying the impact of AI in mathematics education, learning effectiveness, and pedagogical innovation.</p>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Access to anonymized learning data</li>
+                            <li>Research collaboration opportunities</li>
+                            <li>Conference presentation support</li>
+                            <li>Publication assistance</li>
+                        </ul>
+                        <a href="#apply" class="btn btn-outline">Apply Now</a>
+                    </div>
+
+                    <!-- Innovation Fellow -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md); border: 2px solid var(--color-tertiary);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-tertiary-light); color: var(--color-tertiary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h3>Innovation Fellow</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">Technology Leadership</p>
+                            </div>
+                        </div>
+                        <p style="margin-bottom: var(--space-4);">For educational technology leaders, administrators, and innovators driving systemic change in mathematics education through AI integration.</p>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Early access to new features</li>
+                            <li>Product development input</li>
+                            <li>Implementation strategy consulting</li>
+                            <li>Thought leadership opportunities</li>
+                        </ul>
+                        <a href="#apply" class="btn btn-primary">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Fellows -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Meet Our Fellows</h2>
+                <p class="section-subtitle">Exceptional educators making a difference in mathematics education</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <!-- Fellow 1 -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md); text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-primary-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-2xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Dr. Maria Rodriguez</h3>
+                        <p style="color: var(--color-primary); font-weight: var(--font-weight-medium); margin: var(--space-2) 0;">Teaching Fellow</p>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin-bottom: var(--space-3);">Lincoln Middle School, Chicago</p>
+                        <p style="font-size: var(--font-size-sm);">"The DeepMath platform has revolutionized how I approach differentiated instruction. My students are more engaged than ever."</p>
+                    </div>
+
+                    <!-- Fellow 2 -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md); text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-secondary-light); color: var(--color-secondary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-2xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Prof. James Chen</h3>
+                        <p style="color: var(--color-secondary); font-weight: var(--font-weight-medium); margin: var(--space-2) 0;">Research Fellow</p>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin-bottom: var(--space-3);">Stanford University</p>
+                        <p style="font-size: var(--font-size-sm);">"My research on AI-adaptive learning has been enhanced tremendously by the data insights from DeepMath."</p>
+                    </div>
+
+                    <!-- Fellow 3 -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md); text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-tertiary-light); color: var(--color-tertiary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-2xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Sarah Thompson</h3>
+                        <p style="color: var(--color-tertiary); font-weight: var(--font-weight-medium); margin: var(--space-2) 0;">Innovation Fellow</p>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin-bottom: var(--space-3);">Austin ISD, Technology Director</p>
+                        <p style="font-size: var(--font-size-sm);">"Leading the district-wide implementation of AI-enhanced math education has been an incredible journey."</p>
+                    </div>
+
+                    <!-- Fellow 4 -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md); text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-quaternary-light); color: var(--color-quaternary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-2xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Michael Okafor</h3>
+                        <p style="color: var(--color-quaternary); font-weight: var(--font-weight-medium); margin: var(--space-2) 0;">Teaching Fellow</p>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin-bottom: var(--space-3);">International School of Lagos</p>
+                        <p style="font-size: var(--font-size-sm);">"DeepMath has helped me create a truly personalized learning environment for my diverse student population."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section style="background: var(--color-gray-50); padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Fellowship Benefits</h2>
+                <p class="section-subtitle">What you'll receive as a DeepMath Fellow</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); text-align: center;">
+                        <i class="fas fa-trophy" style="font-size: var(--font-size-2xl); color: var(--color-primary); margin-bottom: var(--space-3);"></i>
+                        <h4>Recognition</h4>
+                        <p style="font-size: var(--font-size-sm);">Official fellowship certificate and public recognition</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); text-align: center;">
+                        <i class="fas fa-gift" style="font-size: var(--font-size-2xl); color: var(--color-primary); margin-bottom: var(--space-3);"></i>
+                        <h4>Premium Access</h4>
+                        <p style="font-size: var(--font-size-sm);">Complimentary Gold plan subscription</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); text-align: center;">
+                        <i class="fas fa-users" style="font-size: var(--font-size-2xl); color: var(--color-primary); margin-bottom: var(--space-3);"></i>
+                        <h4>Exclusive Community</h4>
+                        <p style="font-size: var(--font-size-sm);">Access to private fellows-only forums and events</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); text-align: center;">
+                        <i class="fas fa-graduation-cap" style="font-size: var(--font-size-2xl); color: var(--color-primary); margin-bottom: var(--space-3);"></i>
+                        <h4>Professional Development</h4>
+                        <p style="font-size: var(--font-size-sm);">Specialized training and certification programs</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); text-align: center;">
+                        <i class="fas fa-microphone" style="font-size: var(--font-size-2xl); color: var(--color-primary); margin-bottom: var(--space-3);"></i>
+                        <h4>Speaking Opportunities</h4>
+                        <p style="font-size: var(--font-size-sm);">Conference presentations and webinar hosting</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); text-align: center;">
+                        <i class="fas fa-handshake" style="font-size: var(--font-size-2xl); color: var(--color-primary); margin-bottom: var(--space-3);"></i>
+                        <h4>Collaboration</h4>
+                        <p style="font-size: var(--font-size-sm);">Direct input on product development and features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Process -->
+        <section id="apply" style="padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Application Process</h2>
+                <p class="section-subtitle">Join our community of educational leaders</p>
+                
+                <div style="max-width: 800px; margin: var(--space-8) auto;">
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-lg);">
+                        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">1</div>
+                                <div>
+                                    <h3>Submit Application</h3>
+                                    <p style="color: var(--color-gray-600);">Complete our online application form with your background and teaching philosophy</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-secondary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">2</div>
+                                <div>
+                                    <h3>Portfolio Review</h3>
+                                    <p style="color: var(--color-gray-600);">Our team reviews your teaching portfolio and innovation examples</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-tertiary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">3</div>
+                                <div>
+                                    <h3>Interview</h3>
+                                    <p style="color: var(--color-gray-600);">Virtual interview with our education team and current fellows</p>
+                                </div>
+                            </div>
+                            
+                            <div style="display: flex; align-items: center; gap: var(--space-4);">
+                                <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-quaternary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">4</div>
+                                <div>
+                                    <h3>Welcome & Onboarding</h3>
+                                    <p style="color: var(--color-gray-600);">Join our community and begin your fellowship journey</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: var(--space-8);">
+                            <a href="#" class="btn btn-primary" style="margin-right: var(--space-3);">Start Application</a>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section style="background: var(--color-gray-50); padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                
+                <div style="max-width: 800px; margin: var(--space-8) auto;">
+                    <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+                        <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6);">
+                            <h4>What are the eligibility requirements?</h4>
+                            <p style="color: var(--color-gray-600); margin-top: var(--space-2);">Applicants should have at least 3 years of mathematics teaching or research experience and demonstrate innovation in educational practices.</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6);">
+                            <h4>How long is the fellowship term?</h4>
+                            <p style="color: var(--color-gray-600); margin-top: var(--space-2);">Fellowships are awarded for one academic year with the possibility of renewal based on participation and contribution.</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6);">
+                            <h4>Is there a time commitment?</h4>
+                            <p style="color: var(--color-gray-600); margin-top: var(--space-2);">Fellows are expected to participate in monthly virtual meetings and contribute to at least one collaborative project per year.</p>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6);">
+                            <h4>When are applications reviewed?</h4>
+                            <p style="color: var(--color-gray-600); margin-top: var(--space-2);">We review applications on a rolling basis throughout the year, with cohorts starting each semester.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DeepMath</h3>
+                    <p data-i18n="footer.tagline">Mastery Through Challenge, Accelerated by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about.html" data-i18n="footer.about">About us</a>
+                    <a href="contact.html" data-i18n="footer.contact">Contact us</a>
+                    <a href="careers.html" data-i18n="footer.careers">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.resources">Resources</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+                    <a href="terms.html" data-i18n="footer.terms">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 DeepMath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

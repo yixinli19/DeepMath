@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Programs - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-page">
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; padding: var(--space-16) 0 var(--space-12); text-align: center;">
+            <div class="container">
+                <h1 class="hero-title">Campus Programs</h1>
+                <p class="hero-subtitle">Bringing AI-powered mathematics education to schools and educational institutions worldwide</p>
+            </div>
+        </section>
+
+        <!-- Program Overview -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: var(--space-12);">
+                    <h2 class="section-title">Transforming Mathematics Education in Schools</h2>
+                    <p class="section-subtitle" style="max-width: 800px; margin: 0 auto;">
+                        Our campus programs integrate seamlessly with existing curricula, providing teachers with powerful AI tools 
+                        and students with personalized learning experiences that challenge and inspire.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8);">
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-primary-light); color: var(--color-primary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-3xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <h3>500+ Schools</h3>
+                        <p>Partnered with educational institutions across 25 countries</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-secondary-light); color: var(--color-secondary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-3xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>50,000+ Students</h3>
+                        <p>Active learners using our platform in classroom settings</p>
+                    </div>
+                    
+                    <div style="text-align: center;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--color-tertiary-light); color: var(--color-tertiary); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-3xl); margin: 0 auto var(--space-4);">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3>2,500+ Teachers</h3>
+                        <p>Educators trained and supported in AI-enhanced teaching methods</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Types -->
+        <section style="background: var(--color-gray-50); padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Our Campus Programs</h2>
+                <p class="section-subtitle">Flexible solutions designed to meet the unique needs of your institution</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <!-- Elementary Program -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-primary-light); color: var(--color-primary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-child"></i>
+                            </div>
+                            <div>
+                                <h3>Elementary Program</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">Grades K-5</p>
+                            </div>
+                        </div>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Foundation-building number sense activities</li>
+                            <li>Interactive problem-solving games</li>
+                            <li>Visual learning tools and manipulatives</li>
+                            <li>Progress tracking for early learners</li>
+                            <li>Teacher dashboard with insights</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+
+                    <!-- Middle School Program -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-secondary-light); color: var(--color-secondary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div>
+                                <h3>Middle School Program</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">Grades 6-8</p>
+                            </div>
+                        </div>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Algebra and geometry foundations</li>
+                            <li>AI-powered personalized practice</li>
+                            <li>Competition math preparation</li>
+                            <li>Collaborative problem-solving projects</li>
+                            <li>Real-time assessment tools</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+
+                    <!-- High School Program -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-tertiary-light); color: var(--color-tertiary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3>High School Program</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">Grades 9-12</p>
+                            </div>
+                        </div>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Advanced algebra, calculus, and statistics</li>
+                            <li>AP and IB exam preparation</li>
+                            <li>Mathematical modeling projects</li>
+                            <li>College readiness assessments</li>
+                            <li>Research and independent study support</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+
+                    <!-- Gifted & Talented Program -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md); border: 2px solid var(--color-primary);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+                            <div style="background: var(--color-primary-light); color: var(--color-primary); padding: var(--space-4); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h3>Gifted & Talented Program</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">All Grades</p>
+                            </div>
+                        </div>
+                        <ul style="margin-bottom: var(--space-6); padding-left: var(--space-4);">
+                            <li>Accelerated learning pathways</li>
+                            <li>Competition-level problem sets</li>
+                            <li>Olympiad training materials</li>
+                            <li>Mentorship opportunities</li>
+                            <li>Advanced AI tutoring features</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Schools -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Our Partner Schools</h2>
+                <p class="section-subtitle">Trusted by leading educational institutions worldwide</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); box-shadow: var(--shadow-sm); text-align: center;">
+                        <div style="height: 60px; background: var(--color-gray-100); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
+                            <span style="color: var(--color-gray-600); font-weight: var(--font-weight-bold);">Lincoln Elementary</span>
+                        </div>
+                        <h4>Lincoln Elementary School</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">Boston, MA</p>
+                        <p style="font-size: var(--font-size-sm);">"DeepMath has transformed how our students approach mathematics. The engagement level is incredible."</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); box-shadow: var(--shadow-sm); text-align: center;">
+                        <div style="height: 60px; background: var(--color-gray-100); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
+                            <span style="color: var(--color-gray-600); font-weight: var(--font-weight-bold);">Riverside Academy</span>
+                        </div>
+                        <h4>Riverside Academy</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">San Francisco, CA</p>
+                        <p style="font-size: var(--font-size-sm);">"The AI tutoring feature has been a game-changer for our gifted and talented program."</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); box-shadow: var(--shadow-sm); text-align: center;">
+                        <div style="height: 60px; background: var(--color-gray-100); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
+                            <span style="color: var(--color-gray-600); font-weight: var(--font-weight-bold);">Metro High School</span>
+                        </div>
+                        <h4>Metro High School</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">New York, NY</p>
+                        <p style="font-size: var(--font-size-sm);">"Our AP Calculus pass rates increased by 40% after implementing DeepMath."</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-6); box-shadow: var(--shadow-sm); text-align: center;">
+                        <div style="height: 60px; background: var(--color-gray-100); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4);">
+                            <span style="color: var(--color-gray-600); font-weight: var(--font-weight-bold);">International School</span>
+                        </div>
+                        <h4>International School of London</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">London, UK</p>
+                        <p style="font-size: var(--font-size-sm);">"The multilingual support and adaptive learning have been perfect for our diverse student body."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Process -->
+        <section style="background: var(--color-gray-50); padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Implementation Process</h2>
+                <p class="section-subtitle">A seamless transition to AI-enhanced mathematics education</p>
+                
+                <div style="max-width: 800px; margin: var(--space-8) auto;">
+                    <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+                        <div style="display: flex; align-items: center; gap: var(--space-4);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">1</div>
+                            <div>
+                                <h3>Consultation & Assessment</h3>
+                                <p style="color: var(--color-gray-600);">We analyze your current curriculum and identify integration opportunities</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-4);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-secondary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">2</div>
+                            <div>
+                                <h3>Teacher Training</h3>
+                                <p style="color: var(--color-gray-600);">Comprehensive professional development for your education team</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-4);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-tertiary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">3</div>
+                            <div>
+                                <h3>Pilot Implementation</h3>
+                                <p style="color: var(--color-gray-600);">Start with a small group to test and refine the integration</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-4);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-quaternary); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">4</div>
+                            <div>
+                                <h3>Full Deployment</h3>
+                                <p style="color: var(--color-gray-600);">Scale to all classrooms with ongoing support and monitoring</p>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: var(--space-4);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--color-accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);">5</div>
+                            <div>
+                                <h3>Continuous Support</h3>
+                                <p style="color: var(--color-gray-600);">Ongoing training, updates, and dedicated customer success</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; border-radius: var(--border-radius-lg); padding: var(--space-12); text-align: center;">
+                    <h2>Ready to Transform Your School's Math Program?</h2>
+                    <p style="margin: var(--space-4) 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Join hundreds of schools already using DeepMath to enhance their mathematics education. 
+                        Contact our education specialists to learn more about our campus programs.
+                    </p>
+                    <div style="display: flex; gap: var(--space-4); justify-content: center; margin-top: var(--space-6);">
+                        <a href="contact.html" class="btn" style="background: white; color: var(--color-primary);">Contact Us</a>
+                        <a href="#" class="btn" style="background: transparent; border: 2px solid white; color: white;">Schedule Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DeepMath</h3>
+                    <p data-i18n="footer.tagline">Mastery Through Challenge, Accelerated by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about.html" data-i18n="footer.about">About us</a>
+                    <a href="contact.html" data-i18n="footer.contact">Contact us</a>
+                    <a href="careers.html" data-i18n="footer.careers">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.resources">Resources</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+                    <a href="terms.html" data-i18n="footer.terms">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 DeepMath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

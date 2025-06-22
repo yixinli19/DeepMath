@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-page">
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; padding: var(--space-16) 0 var(--space-12); text-align: center;">
+            <div class="container">
+                <h1 class="hero-title">Events & Community</h1>
+                <p class="hero-subtitle">Join our educational community through workshops, webinars, and networking events</p>
+            </div>
+        </section>
+
+        <!-- Upcoming Events -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                <p class="section-subtitle">Don't miss these exciting opportunities to learn and connect</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <!-- Featured Event -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); border: 2px solid var(--color-primary);">
+                        <div style="background: var(--color-primary); color: white; padding: var(--space-4); text-align: center;">
+                            <span style="background: rgba(255,255,255,0.2); padding: var(--space-1) var(--space-3); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Featured Event</span>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                                <div style="background: var(--color-primary-light); color: var(--color-primary); padding: var(--space-3); border-radius: var(--border-radius-md);">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div>
+                                    <h3>AI in Mathematics Education Summit 2025</h3>
+                                    <p style="color: var(--color-gray-600); margin: 0;">January 15-16, 2025 • Virtual Event</p>
+                                </div>
+                            </div>
+                            <p style="margin-bottom: var(--space-4);">Join leading educators, researchers, and technologists for two days of insights into the future of AI-powered mathematics education.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <span style="color: var(--color-success); font-weight: var(--font-weight-medium);">FREE</span>
+                                <a href="#" class="btn btn-primary">Register Now</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regular Events -->
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                            <div style="background: var(--color-secondary-light); color: var(--color-secondary); padding: var(--space-3); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <div>
+                                <h3>Parent Workshop: Supporting Gifted Learners</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">January 20, 2025 • 7:00 PM EST</p>
+                            </div>
+                        </div>
+                        <p style="margin-bottom: var(--space-4);">Learn strategies to support your mathematically gifted child at home and navigate their unique educational needs.</p>
+                        <div style="display: flex; justify-content: between; align-items: center;">
+                            <span style="color: var(--color-success); font-weight: var(--font-weight-medium);">FREE</span>
+                            <a href="#" class="btn btn-outline">Join Webinar</a>
+                        </div>
+                    </div>
+
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                            <div style="background: var(--color-tertiary-light); color: var(--color-tertiary); padding: var(--space-3); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h3>Math Competition Prep Workshop</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">January 25, 2025 • 4:00 PM EST</p>
+                            </div>
+                        </div>
+                        <p style="margin-bottom: var(--space-4);">Intensive workshop covering advanced problem-solving strategies for AMC, MATHCOUNTS, and other competitions.</p>
+                        <div style="display: flex; justify-content: between; align-items: center;">
+                            <span style="color: var(--color-warning); font-weight: var(--font-weight-medium);">$29</span>
+                            <a href="#" class="btn btn-outline">Register</a>
+                        </div>
+                    </div>
+
+                    <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-6); box-shadow: var(--shadow-md);">
+                        <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4);">
+                            <div style="background: var(--color-quaternary-light); color: var(--color-quaternary); padding: var(--space-3); border-radius: var(--border-radius-md);">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h3>Teacher Professional Development</h3>
+                                <p style="color: var(--color-gray-600); margin: 0;">February 1, 2025 • 3:00 PM EST</p>
+                            </div>
+                        </div>
+                        <p style="margin-bottom: var(--space-4);">Professional development session on integrating AI tools and personalized learning in mathematics classrooms.</p>
+                        <div style="display: flex; justify-content: between; align-items: center;">
+                            <span style="color: var(--color-success); font-weight: var(--font-weight-medium);">FREE</span>
+                            <a href="#" class="btn btn-outline">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Calendar -->
+        <section style="background: var(--color-gray-50); padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Event Calendar</h2>
+                <p class="section-subtitle">View all upcoming events and workshops</p>
+                
+                <div style="background: white; border-radius: var(--border-radius-lg); padding: var(--space-8); box-shadow: var(--shadow-md); margin-top: var(--space-8);">
+                    <div style="text-align: center; padding: var(--space-12) 0;">
+                        <i class="fas fa-calendar-alt" style="font-size: 4rem; color: var(--color-gray-400); margin-bottom: var(--space-4);"></i>
+                        <h3>Interactive Calendar Coming Soon</h3>
+                        <p style="color: var(--color-gray-600);">We're building an interactive calendar to help you find and register for events. In the meantime, check our upcoming events above or subscribe to our newsletter for updates.</p>
+                        <a href="#newsletter" class="btn btn-primary" style="margin-top: var(--space-4);">Subscribe for Updates</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Past Events -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Past Events</h2>
+                <p class="section-subtitle">Missed an event? Watch recordings and access resources</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+                        <div style="height: 200px; background: linear-gradient(45deg, var(--color-primary-light), var(--color-secondary-light)); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--color-primary);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <h3>Personalized Learning in Action</h3>
+                            <p style="color: var(--color-gray-600); margin: var(--space-2) 0;">December 10, 2024</p>
+                            <p style="margin-bottom: var(--space-4);">Demonstration of how AI adapts to individual student learning patterns and preferences.</p>
+                            <a href="#" class="btn btn-outline">Watch Recording</a>
+                        </div>
+                    </div>
+
+                    <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+                        <div style="height: 200px; background: linear-gradient(45deg, var(--color-tertiary-light), var(--color-quaternary-light)); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-download" style="font-size: 4rem; color: var(--color-tertiary);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <h3>Building Mathematical Confidence</h3>
+                            <p style="color: var(--color-gray-600); margin: var(--space-2) 0;">November 28, 2024</p>
+                            <p style="margin-bottom: var(--space-4);">Workshop for parents on fostering a positive relationship with mathematics.</p>
+                            <a href="#" class="btn btn-outline">Download Resources</a>
+                        </div>
+                    </div>
+
+                    <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+                        <div style="height: 200px; background: linear-gradient(45deg, var(--color-warning-light), var(--color-success-light)); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-file-pdf" style="font-size: 4rem; color: var(--color-warning);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <h3>Advanced Problem Solving Techniques</h3>
+                            <p style="color: var(--color-gray-600); margin: var(--space-2) 0;">November 15, 2024</p>
+                            <p style="margin-bottom: var(--space-4);">Masterclass on competition-level problem solving strategies and approaches.</p>
+                            <a href="#" class="btn btn-outline">Access Materials</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section id="newsletter" style="background: var(--color-primary); color: white; padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                    <h2>Never Miss an Event</h2>
+                    <p style="margin: var(--space-4) 0;">Subscribe to our newsletter and be the first to know about upcoming workshops, webinars, and community events.</p>
+                    <div style="display: flex; gap: var(--space-3); margin-top: var(--space-6);">
+                        <input type="email" placeholder="Enter your email address" style="flex: 1; padding: var(--space-3); border-radius: var(--border-radius-md); border: none;">
+                        <button class="btn" style="background: white; color: var(--color-primary); padding: var(--space-3) var(--space-6);">Subscribe</button>
+                    </div>
+                    <p style="font-size: var(--font-size-sm); margin-top: var(--space-3); opacity: 0.8;">Join 5,000+ educators and parents in our community</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Guidelines -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 class="section-title">Community Guidelines</h2>
+                    <p style="margin-bottom: var(--space-6);">Our events are designed to be inclusive, educational, and supportive. Please review our community guidelines:</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-4);">
+                        <div style="background: var(--color-gray-50); border-radius: var(--border-radius-md); padding: var(--space-4);">
+                            <i class="fas fa-heart" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                            <h4>Be Respectful</h4>
+                            <p style="font-size: var(--font-size-sm);">Treat all participants with kindness and respect</p>
+                        </div>
+                        
+                        <div style="background: var(--color-gray-50); border-radius: var(--border-radius-md); padding: var(--space-4);">
+                            <i class="fas fa-comments" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                            <h4>Engage Actively</h4>
+                            <p style="font-size: var(--font-size-sm);">Participate in discussions and ask questions</p>
+                        </div>
+                        
+                        <div style="background: var(--color-gray-50); border-radius: var(--border-radius-md); padding: var(--space-4);">
+                            <i class="fas fa-share" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                            <h4>Share Knowledge</h4>
+                            <p style="font-size: var(--font-size-sm);">Share your experiences and learn from others</p>
+                        </div>
+                        
+                        <div style="background: var(--color-gray-50); border-radius: var(--border-radius-md); padding: var(--space-4);">
+                            <i class="fas fa-shield-alt" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                            <h4>Stay Safe</h4>
+                            <p style="font-size: var(--font-size-sm);">Protect privacy and maintain professional boundaries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DeepMath</h3>
+                    <p data-i18n="footer.tagline">Mastery Through Challenge, Accelerated by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about.html" data-i18n="footer.about">About us</a>
+                    <a href="contact.html" data-i18n="footer.contact">Contact us</a>
+                    <a href="careers.html" data-i18n="footer.careers">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.resources">Resources</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+                    <a href="terms.html" data-i18n="footer.terms">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 DeepMath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - DeepMath</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DeepMath</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                <li><a href="index.html#problems" data-i18n="nav.problems">Problem</a></li>
+                <li><a href="index.html#benefits" data-i18n="nav.solution">Solution</a></li>
+                <li><a href="index.html#pricing" data-i18n="nav.pricing">Pricing</a></li>
+                <li><a href="index.html#testimonials" data-i18n="nav.reviews">Review</a></li>
+            </ul>
+            <div class="nav-actions">
+                <div class="language-selector">
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <a href="login.html" class="nav-login" data-i18n="nav.login">Login</a>
+                <a href="signup.html" class="nav-signup" data-i18n="nav.signup">Start Free Trial</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-page">
+        <!-- Hero Section -->
+        <section class="hero" style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); color: white; padding: var(--space-16) 0 var(--space-12); text-align: center;">
+            <div class="container">
+                <h1 class="hero-title">DeepMath Blog</h1>
+                <p class="hero-subtitle">Insights, tips, and resources for mathematics education and AI-powered learning</p>
+            </div>
+        </section>
+
+        <!-- Featured Article -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: var(--space-12);">
+                    <div style="height: 300px; background: linear-gradient(135deg, var(--color-primary-light), var(--color-secondary-light)); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-robot" style="font-size: 4rem; color: var(--color-primary);"></i>
+                    </div>
+                    <div style="padding: var(--space-8);">
+                        <div style="display: flex; gap: var(--space-3); margin-bottom: var(--space-4);">
+                            <span style="background: var(--color-primary-light); color: var(--color-primary); padding: var(--space-1) var(--space-3); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Featured</span>
+                            <span style="background: var(--color-gray-100); padding: var(--space-1) var(--space-3); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">AI in Education</span>
+                        </div>
+                        <h2 style="margin-bottom: var(--space-4);">The Future of Personalized Learning: How AI is Transforming Mathematics Education</h2>
+                        <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">Discover how artificial intelligence is revolutionizing the way students learn mathematics, from adaptive problem selection to personalized tutoring experiences that adjust to each student's unique learning style.</p>
+                        <div style="display: flex; justify-content: between; align-items: center;">
+                            <div style="display: flex; align-items: center; gap: var(--space-3);">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-gray-300); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div>
+                                    <p style="font-weight: var(--font-weight-medium); margin: 0;">Dr. Sarah Chen</p>
+                                    <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 15, 2024</p>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Categories -->
+        <section style="background: var(--color-gray-50); padding: var(--space-8) 0;">
+            <div class="container">
+                <h2 class="section-title">Browse by Category</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-top: var(--space-6);">
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-4); text-align: center; cursor: pointer; transition: transform 0.3s ease;" onclick="filterPosts('all')">
+                        <i class="fas fa-th-large" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                        <h4>All Posts</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">24 articles</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-4); text-align: center; cursor: pointer; transition: transform 0.3s ease;" onclick="filterPosts('teaching')">
+                        <i class="fas fa-chalkboard-teacher" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                        <h4>Teaching Tips</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">8 articles</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-4); text-align: center; cursor: pointer; transition: transform 0.3s ease;" onclick="filterPosts('technology')">
+                        <i class="fas fa-microchip" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                        <h4>Technology</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">6 articles</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-4); text-align: center; cursor: pointer; transition: transform 0.3s ease;" onclick="filterPosts('parenting')">
+                        <i class="fas fa-heart" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                        <h4>Parenting</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">7 articles</p>
+                    </div>
+                    
+                    <div style="background: white; border-radius: var(--border-radius-md); padding: var(--space-4); text-align: center; cursor: pointer; transition: transform 0.3s ease;" onclick="filterPosts('research')">
+                        <i class="fas fa-flask" style="font-size: var(--font-size-xl); color: var(--color-primary); margin-bottom: var(--space-2);"></i>
+                        <h4>Research</h4>
+                        <p style="color: var(--color-gray-600); font-size: var(--font-size-sm);">3 articles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Articles -->
+        <section style="padding: var(--space-12) 0;">
+            <div class="container">
+                <h2 class="section-title">Recent Articles</h2>
+                
+                <div id="blogPosts" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--space-6); margin-top: var(--space-8);">
+                    <!-- Article 1 -->
+                    <article class="blog-post" data-category="teaching" style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                        <div style="height: 200px; background: linear-gradient(45deg, #f0f9ff, #e0e7ff); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-calculator" style="font-size: 3rem; color: var(--color-primary);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+                                <span style="background: var(--color-secondary-light); color: var(--color-secondary); padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm); font-size: var(--font-size-xs);">Teaching Tips</span>
+                            </div>
+                            <h3 style="margin-bottom: var(--space-3);">5 Strategies to Make Math Less Intimidating for Gifted Students</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">Even gifted students can feel overwhelmed by advanced mathematics. Learn practical strategies to build confidence and maintain engagement.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 12, 2024</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <article class="blog-post" data-category="parenting" style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                        <div style="height: 200px; background: linear-gradient(45deg, #fef3c7, #fde68a); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-family" style="font-size: 3rem; color: var(--color-warning);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+                                <span style="background: var(--color-warning-light); color: var(--color-warning); padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm); font-size: var(--font-size-xs);">Parenting</span>
+                            </div>
+                            <h3 style="margin-bottom: var(--space-3);">Supporting Your Child's Mathematical Journey at Home</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">Discover how parents can create a supportive environment for mathematical learning without becoming the tutor.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 10, 2024</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 3 -->
+                    <article class="blog-post" data-category="technology" style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                        <div style="height: 200px; background: linear-gradient(45deg, #ddd6fe, #c4b5fd); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-brain" style="font-size: 3rem; color: var(--color-tertiary);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+                                <span style="background: var(--color-tertiary-light); color: var(--color-tertiary); padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm); font-size: var(--font-size-xs);">Technology</span>
+                            </div>
+                            <h3 style="margin-bottom: var(--space-3);">Understanding AI Tutoring: How Machine Learning Adapts to Student Needs</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">A deep dive into the algorithms and methodologies that power personalized AI tutoring systems.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 8, 2024</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 4 -->
+                    <article class="blog-post" data-category="teaching" style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                        <div style="height: 200px; background: linear-gradient(45deg, #dcfce7, #bbf7d0); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-trophy" style="font-size: 3rem; color: var(--color-success);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+                                <span style="background: var(--color-success-light); color: var(--color-success); padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm); font-size: var(--font-size-xs);">Teaching Tips</span>
+                            </div>
+                            <h3 style="margin-bottom: var(--space-3);">Preparing Students for Math Competitions: A Complete Guide</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">From AMC to MATHCOUNTS, learn how to prepare students for competitive mathematics with effective training strategies.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 5, 2024</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 5 -->
+                    <article class="blog-post" data-category="research" style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                        <div style="height: 200px; background: linear-gradient(45deg, #fee2e2, #fecaca); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--color-danger);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+                                <span style="background: var(--color-danger-light); color: var(--color-danger); padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm); font-size: var(--font-size-xs);">Research</span>
+                            </div>
+                            <h3 style="margin-bottom: var(--space-3);">Latest Research: The Impact of Personalized Learning on Student Outcomes</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">New studies show significant improvements in learning outcomes when using adaptive, personalized educational technologies.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 3, 2024</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 6 -->
+                    <article class="blog-post" data-category="parenting" style="background: white; border-radius: var(--border-radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: transform 0.3s ease;">
+                        <div style="height: 200px; background: linear-gradient(45deg, #e0f2fe, #b3e5fc); display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-lightbulb" style="font-size: 3rem; color: var(--color-info);"></i>
+                        </div>
+                        <div style="padding: var(--space-6);">
+                            <div style="display: flex; gap: var(--space-2); margin-bottom: var(--space-3);">
+                                <span style="background: var(--color-info-light); color: var(--color-info); padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm); font-size: var(--font-size-xs);">Parenting</span>
+                            </div>
+                            <h3 style="margin-bottom: var(--space-3);">Recognizing and Nurturing Mathematical Giftedness in Young Children</h3>
+                            <p style="color: var(--color-gray-600); margin-bottom: var(--space-4);">Early signs of mathematical talent and how parents can provide appropriate challenges and support.</p>
+                            <div style="display: flex; justify-content: between; align-items: center;">
+                                <p style="color: var(--color-gray-600); font-size: var(--font-size-sm); margin: 0;">December 1, 2024</p>
+                                <a href="#" class="btn btn-outline">Read More</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Load More -->
+                <div style="text-align: center; margin-top: var(--space-8);">
+                    <a href="#" class="btn btn-primary">Load More Articles</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section style="background: var(--color-primary); color: white; padding: var(--space-12) 0;">
+            <div class="container">
+                <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                    <h2>Stay Updated</h2>
+                    <p style="margin: var(--space-4) 0;">Get the latest insights on mathematics education, AI in learning, and teaching strategies delivered to your inbox.</p>
+                    <div style="display: flex; gap: var(--space-3); margin-top: var(--space-6);">
+                        <input type="email" placeholder="Enter your email address" style="flex: 1; padding: var(--space-3); border-radius: var(--border-radius-md); border: none;">
+                        <button class="btn" style="background: white; color: var(--color-primary); padding: var(--space-3) var(--space-6);">Subscribe</button>
+                    </div>
+                    <p style="font-size: var(--font-size-sm); margin-top: var(--space-3); opacity: 0.8;">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DeepMath</h3>
+                    <p data-i18n="footer.tagline">Mastery Through Challenge, Accelerated by AI</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.company">Company</h4>
+                    <a href="about.html" data-i18n="footer.about">About us</a>
+                    <a href="contact.html" data-i18n="footer.contact">Contact us</a>
+                    <a href="careers.html" data-i18n="footer.careers">Careers</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer.resources">Resources</h4>
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a>
+                    <a href="terms.html" data-i18n="footer.terms">Terms of service</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-i18n="footer.copyright">&copy; 2024 DeepMath. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.blog-post');
+            posts.forEach(post => {
+                if (category === 'all' || post.dataset.category === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="scripts/main.js"></script>
+</body>
+</html> 
